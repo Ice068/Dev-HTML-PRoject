@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson - Sidebar</title>
+<link rel="stylesheet" href="/static/css/lesson4.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>📚 Lesson: สร้าง Sidebar</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🧠 Sidebar คืออะไร?</h3>
+    <p>
+      Sidebar คือแถบเมนูด้านข้างของเว็บไซต์  
+      ใช้สำหรับนำทางไปยังหน้าอื่น เช่น Dashboard, ภารกิจ, โปรไฟล์
+    </p>
+  </div>
+
+  <!-- ตัวอย่าง -->
+  <div class="card">
+    <h3>💡 ตัวอย่างโค้ด</h3>
+
+    <div class="code-box">
+&lt;div class="sidebar"&gt;<br>
+&nbsp;&nbsp;&lt;a href="#"&gt;หน้าแรก&lt;/a&gt;<br>
+&nbsp;&nbsp;&lt;a href="#"&gt;ภารกิจ&lt;/a&gt;<br>
+&nbsp;&nbsp;&lt;a href="#"&gt;โปรไฟล์&lt;/a&gt;<br>
+&lt;/div&gt;
+    </div>
+  </div>
+
+  <!-- แสดงผล -->
+  <div class="card">
+    <h3>👀 ตัวอย่าง Sidebar จริง</h3>
+
+    <div class="demo">
+      <div class="sidebar-demo">
+        <a>🏠 หน้าแรก</a>
+        <a>⚔️ ภารกิจ</a>
+        <a>📊 ข้อมูล</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ภารกิจ -->
+  <div class="card">
+    <h3>🎯 ภารกิจ</h3>
+    <p>
+      สร้าง Sidebar ที่มี 3 เมนู:
+      <br>👉 หน้าแรก
+      <br>👉 ภารกิจ
+      <br>👉 ข้อมูล
+    </p>
+
+    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+
+    <button onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div id="result"></div>
+  </div>
+
+  <button onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/lesson4.js"></script>
+
+</body>
+</html>

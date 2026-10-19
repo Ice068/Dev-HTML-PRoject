@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Boss Sandbox</title>
+<link rel="stylesheet" href="/static/css/boss2.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>👑 FINAL BOSS: Sandbox</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🔥 ภารกิจสุดท้าย</h3>
+    <p>
+      สร้างเว็บไซต์อะไรก็ได้ 🎨  
+      แต่ต้องมีโครงสร้าง HTML ที่ถูกต้อง
+    </p>
+
+    <ul>
+      <li>ต้องมี html / head / body</li>
+      <li>ต้องมีเนื้อหาอย่างน้อย 1 อย่าง</li>
+    </ul>
+  </div>
+
+  <!-- editor -->
+  <div class="card">
+    <h3>💻 เขียนโค้ด</h3>
+
+    <textarea id="codeArea" placeholder="เริ่มสร้างเว็บของคุณ..."></textarea>
+
+    <button class="btn" onclick="runCode()">▶ Run</button>
+    <button class="btn" onclick="checkCode()">✔ ตรวจ</button>
+
+    <iframe id="output"></iframe>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/boss2.js"></script>
+
+</body>
+</html>

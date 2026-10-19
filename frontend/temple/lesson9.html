@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9: Button</title>
+    <link rel="stylesheet" href="/static/css/lesson9.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Lesson: Button</h1>
+
+        <!-- อธิบาย -->
+         <div class="card">
+            <h3>🧠 ลองนึกภาพ</h3>
+            <p>
+                Button = ปุ่มที่ผู้ใช้ “กด”
+                เช่น ปุ่ม Login / Submit
+            </p>
+
+            <div class="code-box">
+                &lt;button&gt;คลิกฉัน&lt;/button&gt;
+            </div>
+         </div>
+
+         <!-- อธิบายเพิ่มเติม -->
+          <div class="card">
+            <h3>💡 ใช้ทำอะไร?</h3>
+            <ul>
+                <li>ส่งฟอร์ม</li>
+                <li>เปิดหน้าต่างใหม่</li>
+                <li>เรียกฟังก์ชัน JavaScript</li>
+            </ul>
+          </div>
+
+          <!-- ภารกิจ -->
+           <div class="card">
+            <h3>🎯 ภารกิจ</h3>
+            <p>
+                สร้างปุ่มที่มีข้อความ <b>เริ่มเกม</b>
+            </p>
+            <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+            <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+            <div class="result" id="result"></div>
+           </div>
+            <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+    </div>
+    <script src="/static/js/config.js"></script>
+<script src="/static/js/lesson9.js"></script>
+</body>
+</html>

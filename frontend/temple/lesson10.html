@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Div</title>
+<link rel="stylesheet" href="/static/css/lesson10.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>📦 Lesson: Div / Section</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🧠 ลองนึกภาพ</h3>
+    <p>
+      div = กล่อง 📦  
+      section = ส่วนเนื้อหา 📄
+    </p>
+
+    <div class="code-box">
+&lt;div&gt;กล่อง&lt;/div&gt;<br>
+&lt;section&gt;เนื้อหา&lt;/section&gt;
+    </div>
+  </div>
+
+  <!-- อธิบายเพิ่ม -->
+  <div class="card">
+    <h3>💡 ใช้ทำอะไร?</h3>
+    <ul>
+      <li>จัด layout หน้าเว็บ</li>
+      <li>แบ่งเนื้อหาเป็นส่วน</li>
+      <li>ใช้คู่กับ CSS</li>
+    </ul>
+  </div>
+
+  <!-- ภารกิจ -->
+  <div class="card">
+    <h3>🎯 ภารกิจ</h3>
+    <p>
+      สร้าง <b>&lt;div&gt;</b> ที่มีข้อความ <b>กล่อง</b>  
+      และ <b>&lt;section&gt;</b> ที่มีข้อความ <b>เนื้อหา</b>
+    </p>
+
+    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+
+    <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/lesson10.js"></script>
+
+</body>
+</html>

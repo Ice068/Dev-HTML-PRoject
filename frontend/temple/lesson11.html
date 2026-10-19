@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Table</title>
+<link rel="stylesheet" href="/static/css/lesson11.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>📊 Lesson: Table</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🧠 ลองนึกภาพ</h3>
+    <p>
+      Table = ตาราง  
+      ใช้แสดงข้อมูลเป็นช่อง ๆ
+    </p>
+
+    <div class="code-box">
+&lt;table&gt;<br>
+&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;1&lt;/td&gt;<br>
+&nbsp;&nbsp;&lt;/tr&gt;<br>
+&lt;/table&gt;
+    </div>
+  </div>
+
+  <!-- อธิบายเพิ่ม -->
+  <div class="card">
+    <h3>💡 ส่วนประกอบ</h3>
+    <ul>
+      <li><b>&lt;table&gt;</b> = ตาราง</li>
+      <li><b>&lt;tr&gt;</b> = แถว</li>
+      <li><b>&lt;td&gt;</b> = ช่องข้อมูล</li>
+    </ul>
+  </div>
+
+  <!-- ภารกิจ -->
+  <div class="card">
+    <h3>🎯 ภารกิจ</h3>
+    <p>
+      สร้างตารางที่มีข้อมูล <b>HTML</b> และ <b>CSS</b>
+    </p>
+
+    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+
+    <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/lesson11.js"></script>
+
+</body>
+</html>

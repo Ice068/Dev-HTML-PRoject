@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3 - Heading</title>
+<link rel="stylesheet" href="/static/css/lesson3.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🔤 Lesson 3: Heading (H1 - H6)</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🧠 ลองนึกภาพแบบนี้</h3>
+    <p>Heading = หัวข้อของบทความ 📚</p>
+
+    <ul>
+      <li>&lt;h1&gt; = ใหญ่สุด (หัวข้อหลัก)</li>
+      <li>&lt;h2&gt; = รองลงมา</li>
+      <li>...</li>
+      <li>&lt;h6&gt; = เล็กสุด</li>
+    </ul>
+
+    <div class="code-box">
+&lt;h1&gt;หัวข้อใหญ่&lt;/h1&gt;<br>
+&lt;h2&gt;หัวข้อรอง&lt;/h2&gt;<br>
+&lt;h3&gt;หัวข้อย่อย&lt;/h3&gt;
+    </div>
+  </div>
+
+  <!-- อธิบายเพิ่ม -->
+  <div class="card">
+    <h3>💡 เข้าใจง่าย ๆ</h3>
+    <p>
+      เหมือน “หัวข้อหนังสือ” 📖  
+      ยิ่งสำคัญ → ยิ่งใช้ h1
+    </p>
+  </div>
+
+  <!-- โจทย์ -->
+  <div class="card">
+    <h3>🎯 ภารกิจ</h3>
+    <p>
+      สร้าง <b>h1</b> ที่มีข้อความว่า <b>My Website</b>
+    </p>
+
+    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+
+    <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/lesson3.js"></script>
+
+</body>
+</html>

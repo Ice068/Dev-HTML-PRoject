@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1 - HTML Structure</title>
+    <link rel="stylesheet" href="/static/css/lesson1.css">
+</head>
+<body>
+    <div class="container">
+
+  <h1>📘 Lesson 1: โครงสร้าง HTML</h1>
+
+  <!-- อธิบายแบบเห็นภาพ -->
+  <div class="card">
+    <h3>🧠 ลองนึกภาพแบบนี้</h3>
+
+    <p>
+      การเขียน HTML เหมือนกับการสร้าง “บ้าน 1 หลัง” 🏠
+    </p>
+
+    <ul>
+      <li><b>&lt;html&gt;</b> = บ้านทั้งหลัง</li>
+      <li><b>&lt;head&gt;</b> = สมอง (ข้อมูลเบื้องหลัง เช่น title)</li>
+      <li><b>&lt;body&gt;</b> = ตัวบ้านที่เราเห็น</li>
+    </ul>
+
+    <div class="code-box">
+&lt;html&gt;  ← บ้านทั้งหลัง 🏠<br>
+&nbsp;&nbsp;&lt;head&gt;&lt;/head&gt; ← สมอง 🧠<br>
+&nbsp;&nbsp;&lt;body&gt;Hello World&lt;/body&gt; ← สิ่งที่คนเห็น 👀<br>
+&lt;/html&gt;
+    </div>
+  </div>
+
+  <!-- อธิบายเพิ่ม -->
+  <div class="card">
+    <h3>💡 เข้าใจง่าย ๆ</h3>
+    <p>
+      สิ่งที่แสดงบนหน้าเว็บจริง ๆ คือ <b>&lt;body&gt;</b> เท่านั้น!
+    </p>
+    <p>
+      ถ้าเขียน <b>Hello World</b> ใน body → คนจะเห็นข้อความนี้
+    </p>
+  </div>
+
+  <!-- โจทย์ -->
+  <div class="card">
+    <h3>🎯 ภารกิจ</h3>
+    <p>
+      สร้างโครงสร้าง HTML และให้มีคำว่า <b>Hello World</b> อยู่ใน &lt;body&gt;
+    </p>
+
+    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+
+    <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <!-- ปุ่มกลับ -->
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+<script src="/static/js/config.js"></script>
+<script src="/static/js/lesson1.js"></script>
+</body>
+</html>

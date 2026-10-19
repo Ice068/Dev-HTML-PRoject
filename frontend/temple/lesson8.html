@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson List</title>
+<link rel="stylesheet" href="/static/css/lesson8.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>📋 Lesson: List</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🧠 ลองนึกภาพ</h3>
+    <p>
+      List = รายการ  
+      เหมือน “เมนูร้านอาหาร” 🍔
+    </p>
+
+    <div class="code-box">
+&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;HTML&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;CSS&lt;/li&gt;<br>
+&lt;/ul&gt;
+    </div>
+  </div>
+
+  <!-- อธิบายเพิ่ม -->
+  <div class="card">
+    <h3>💡 ใช้ทำอะไร?</h3>
+    <ul>
+      <li>เมนูเว็บไซต์</li>
+      <li>รายการสิ่งของ</li>
+      <li>To-do list</li>
+    </ul>
+  </div>
+
+  <!-- ภารกิจ -->
+  <div class="card">
+    <h3>🎯 ภารกิจ</h3>
+    <p>
+      สร้าง <b>&lt;ul&gt;</b> ที่มีรายการ  
+      <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>
+    </p>
+
+    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+
+    <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/lesson8.js"></script>
+
+</body>
+</html>

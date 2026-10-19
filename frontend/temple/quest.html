@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevQuest</title>
+    <link rel="stylesheet" href="/static/css/quest.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+         <aside class="sidebar">
+            <h2 class="logo">Dev <span>Quest</span></h2>
+
+            <nav class="menu">
+                <a href="dashboard.html">🏠 ฐานบัญชาการ</a>
+                <a href="quest.html" class="active">⚔️ ภารกิจ</a>
+                <a href="simcode.html">💻 จำลองโค้ด</a>
+                <a href="progress.html">📊 ข้อมูล</a>
+            </nav>
+
+            <button class="logout" onclick="logout()">ออกจากระบบ</button>
+         </aside>
+
+         <!-- Main -->
+          <main class="main">
+            <h1>⚔️ ภารกิจของคุณ</h1>
+            <div class="quests">
+                <!-- Quest 1 -->
+                 <div class="quest-card">
+                    <h3>🧱 HTML Structure</h3>
+                    <p>สร้างโครงสร้าง HTML สำหรับหน้าเว็บ</p>
+                    <span class="exp">+50 EXP</span>
+                    <button onclick="go('lesson1.html')">ลุยเลย 🚀</button>
+                 </div>
+
+                 <!-- Quest 2 -->
+                  <div class="quest-card">
+                    <h3>🔗 Link</h3>
+                    <p>สร้างลิงก์ไปยังหน้าเว็บอื่น</p>
+                    <span class="exp">+50 EXP</span>
+                    <button onclick="go('lesson2.html', 'lesson1_done')">ลุยเลย 🚀</button>
+                  </div>
+                  
+                  <!-- Quest 3 -->
+                   <div class="quest-card">
+                    <h3>🔤 Heading</h3>
+                    <p>สร้างหัวข้อด้วย H1 - H6</p>
+                    <span class="exp">+20 EXP</span>
+                    <button onclick="go('lesson3.html', 'lesson2_done')">ลุยเลย 🚀</button>
+                   </div>
+
+                   <!-- Quest 4 -->
+                    <div class="quest-card">
+                        <h3>SideBar</h3>
+                        <p>สร้าง Sidebar สำหรับหน้าเว็บ</p>
+                        <span class="exp">+30 EXP</span>
+                        <button onclick="go('lesson4.html', 'lesson3_done')">ลุยเลย 🚀</button>
+                    </div>
+
+                    <!-- Quest 5 -->
+                     <div class="quest-card">
+                        <h3>Footer</h3>
+                        <p>สร้าง Footer สำหรับหน้าเว็บ</p>
+                        <span class="exp">+20 EXP</span>
+                        <button onclick="go('lesson5.html', 'lesson4_done')">ลุยเลย 🚀</button>
+                     </div>
+
+                     <!-- Quesst 6 -->
+                      <div class="quest-card">
+                        <h3>Navbar</h3>
+                        <p>สร้าง Navbar สำหรับหน้าเว็บ</p>
+                        <span class="exp">+40 EXP</span>
+                        <button onclick="go('lesson6.html', 'lesson5_done')">ลุยเลย 🚀</button>
+                      </div>
+
+                       <!-- Quest 7 -->
+                        <div class="quest-card">
+                            <h3>Image</h3>
+                            <p>เพิ่มรูปภาพลงในหน้าเว็บ</p>
+                            <span class="exp">+30 EXP</span>
+                            <button onclick="go('lesson7.html', 'lesson6_done')">ลุยเลย 🚀</button>
+                        </div>
+
+                        <!-- Quest 8 -->
+                         <div class="quest-card">
+                            <h3>list</h3>
+                            <p>สร้างรายการในหน้าเว็บ</p>
+                            <span class="exp">+20 EXP</span>
+                            <button onclick="go('lesson8.html', 'lesson7_done')">ลุยเลย 🚀</button>
+                         </div>
+
+                         <!-- Quest 9 -->
+                          <div class="quest-card">
+                            <h3>button</h3>
+                            <p>สร้างปุ่มในหน้าเว็บ</p>
+                            <span class="exp">+20 EXP</span>
+                            <button onclick="go('lesson9.html', 'lesson8_done')">ลุยเลย 🚀</button>
+                          </div>
+
+                          <!-- Quest 10 -->
+                           <div class="quest-card">
+                            <h3>Div / Section</h3>
+                            <p>สร้าง Div หรือ Section สำหรับแบ่งส่วนของหน้าเว็บ</p>
+                            <span class="exp">+20 EXP</span>
+                            <button onclick="go('lesson10.html', 'lesson9_done')">ลุยเลย 🚀</button>
+                           </div>
+
+                           <!-- Quest 11 -->
+                            <div class="quest-card">
+                                <h3>table</h3>
+                                <p>สร้างตารางในหน้าเว็บ</p>
+                                <span class="exp">+30 EXP</span>
+                                <button onclick="go('lesson11.html', 'lesson10_done')">ลุยเลย 🚀</button>
+                            </div>
+
+                            <!-- Quest 12 -->
+                             <div class="quest-card">
+                                <h3>Media</h3>
+                                <p>
+                                    เพิ่มสื่อเช่น วิดีโอ หรือเสียงลงในหน้าเว็บ
+                                </p>
+                                <span class="exp">+30 EXP</span>
+                                <button onclick="go('lesson12.html', 'lesson11_done')">ลุยเลย 🚀</button>
+                             </div>
+                             <!-- Final01 Quest -->
+                              <div class="quest-card">
+                                <h3>Final Quest 01</h3>
+                                <p>สร้างเว็บไซต์ครบวงจร</p>
+                                <span class="exp">+200 EXP</span>
+                                <button onclick="go('boss1.html', 'lesson12_done')">ลุยเลย 🚀</button>
+                              </div>
+                                <!-- Final02 Quest -->
+                                 <div class="quest-card">
+                                    <h3>Final Quest 02</h3>
+                                    <p>สร้างเว็บไซต์ครบวงจร (ระดับสูง)</p>
+                                    <span class="exp">+300 EXP</span>
+                                    <button onclick="go('boss2.html', 'lesson12_done')">ลุยเลย 🚀</button>
+                                 </div>
+            </div>
+          </main>
+    </div>
+    <script src="/static/js/quest.js"></script>
+</body>
+</html>

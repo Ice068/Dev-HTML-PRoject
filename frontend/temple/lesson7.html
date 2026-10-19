@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 7 Image</title>
+    <link rel="stylesheet" href="/static/css/lesson7.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️Lesson 7: Image</h1>
+
+        <!-- อธิบาย -->
+         <div class="card">
+            <h3>🧠 ลองนึกภาพ</h3>
+            <p>
+                &lt;img&gt; = ใช้แสดงรูปภาพบนเว็บไซต์
+                เหมือน “ใส่รูปโปรไฟล์” 📸
+            </p>
+
+            <div class="card">
+                <h3>💡 ส่วนประกอบสำคัญ</h3>
+                <ul>
+                    <li><b>src</b> = ระบุเส้นทางของรูปภาพ</li>
+                    <li><b>alt</b> = ข้อความแสดงแทนรูปภาพ (ถ้ารูปภาพโหลดไม่ได้)</li>
+                </ul>
+            </div>
+
+            <!-- ภารกิจ -->
+             <div class="card">
+                <h3>🎯 ภารกิจ</h3>
+                <p>
+                    สร้างรูปภาพที่มีคำว่า <b>cat</b> ใน src 
+                    และมี alt = <b>แมว</b>
+                </p>
+
+                <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+                <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+                <div class="result" id="result"></div>
+             </div>
+         </div>
+         <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+    </div>
+    <script src="/static/js/config.js"></script>
+<script src="/static/js/lesson7.js"></script>
+</body>
+</html>

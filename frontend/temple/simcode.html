@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevQuest - SimCode</title>
+<link rel="stylesheet" href="/static/css/simcode.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Dev <span>Sim</span></h2>
+
+    <nav class="menu">
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="quest.html">⚔️ ภารกิจ</a>
+      <a href="simcode.html" class="active">💻 ทดลองโค้ด</a>
+      <a href="progress.html">📊 ข้อมูล</a>
+    </nav>
+
+    <button class="logout" onclick="logout()">ออกจากระบบ</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <h1>💻 SimCode Playground</h1>
+
+    <div class="editor">
+
+      <!-- เขียนโค้ด -->
+      <div class="panel">
+        <h3>✏️ เขียนโค้ด</h3>
+        <textarea id="codeArea">
+<h1>Hello DevQuest</h1>
+<p>ลองแก้โค้ดดู 🔥</p>
+        </textarea>
+
+        <button onclick="runCode()">▶ Run Code</button>
+      </div>
+
+      <!-- แสดงผล -->
+      <div class="panel">
+        <h3>🖥️ ผลลัพธ์</h3>
+        <iframe id="output"></iframe>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="/static/js/simcode.js"></script>
+
+</body>
+</html>

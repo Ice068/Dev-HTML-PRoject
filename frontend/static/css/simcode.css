@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+}
+
+/* Layout */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg,#111827,#020617);
+  padding: 20px;
+}
+
+.logo span {
+  color: #22d3ee;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  color: #aaa;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.menu a.active,
+.menu a:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.logout {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Editor */
+.editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.panel {
+  background: #111827;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  height: 250px;
+  margin-top: 10px;
+  background: black;
+  color: #22d3ee;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: monospace;
+}
+
+/* Button */
+button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg,#06b6d4,#3b82f6);
+  color: white;
+  cursor: pointer;
+}
+
+/* Output */
+iframe {
+  width: 100%;
+  height: 300px;
+  background: white;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .editor {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu a.active {
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #22d3ee;
+  }
+  to {
+    box-shadow: 0 0 20px #22d3ee, 0 0 30px #22d3ee;
+  }
+}
+
+.menu a:active {
+  transform: scale(0.95);
+}
+
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background: linear-gradient(180deg,#111827,#020617);
+  padding: 20px;
+  border-right: 1px solid rgba(34,211,238,0.1);
+}
+
+.menu a.active {
+  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  color: white;
+  border-radius: 14px;
+  position: relative;
+  z-index: 1;
+
+  /* glow รอบปุ่ม */
+  box-shadow: 
+    0 0 10px rgba(34,211,238,0.8),
+    0 0 25px rgba(59,130,246,0.6),
+    0 0 40px rgba(34,211,238,0.4);
+}

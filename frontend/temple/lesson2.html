@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2 - Link</title>
+    <link rel="stylesheet" href="/static/css/lesson2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Lesson 2: การสร้างลิงก์ (Link)</h1>
+        <!-- อธิบายแบบเห็นภาพ -->
+         <div class="card">
+            <h3>🧠 ลองนึกภาพแบบนี้</h3>
+            <p>
+                ลิงก์ = “ประตูวาร์ป” 🌀 ไปยังหน้าอื่น
+            </p>
+
+            <ul>
+                <li><b>&lt;a&gt;</b> = ปุ่ม/ข้อความที่กดได้</b></li>
+                <li><b>href</b> = ปลายทางที่เราจะไป</li>
+            </ul>
+
+            <div class="code-box">
+                &lt;a href="page2.html"&gt;ไปหน้า 2&lt;/a&gt;
+            </div>
+         </div>
+         <!-- อธิบายเพิ่ม -->
+          <div class="card">
+            <h3>💡 ตัวอย่างการใช้งาน</h3>
+            <p>
+                ถ้าคลิก “ไปหน้า 2” → จะเปิดไฟล์ page2.html
+            </p>
+          </div>
+          <!-- โจทย์ -->
+           <div class="card">
+            <h3>🎯 ภารกิจ</h3>
+            <p>
+                สร้างลิงก์ไปหน้า <b>dashboard.html</b> และให้มีข้อความว่า <b>ไป Dashboard</b>
+            </p>
+            <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+            <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+            <div class="result" id="result"></div>
+           </div>
+           <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+    </div>
+    <script src="/static/js/config.js"></script>
+<script src="/static/js/lesson2.js"></script>
+</body>
+</html>

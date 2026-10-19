@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boss Stage</title>
+<link rel="stylesheet" href="/static/css/boss1.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>👑 BOSS: สร้างเว็บของคุณเอง</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🔥 ภารกิจใหญ่</h3>
+    <p>
+      สร้างเว็บแนะนำตัวเอง ที่มี:
+    </p>
+
+    <ul>
+      <li>หัวข้อ (h1)</li>
+      <li>รูปภาพ (img)</li>
+      <li>รายการ (ul / li)</li>
+      <li>ลิงก์ (a)</li>
+      <li>ปุ่ม (button)</li>
+      <li>section หรือ div</li>
+    </ul>
+  </div>
+
+  <!-- ตัวอย่าง -->
+  <div class="card">
+    <h3>💡 ตัวอย่าง</h3>
+
+    <div class="code-box">
+&lt;h1&gt;My Website&lt;/h1&gt;<br>
+&lt;img src="cat.jpg" alt="แมว"&gt;<br>
+&lt;ul&gt;<br>
+&lt;li&gt;HTML&lt;/li&gt;<br>
+&lt;/ul&gt;<br>
+&lt;a href="dashboard.html"&gt;กลับหน้าแรก&lt;/a&gt;<br>
+&lt;button&gt;กดฉัน&lt;/button&gt;
+    </div>
+  </div>
+
+  <!-- พิมพ์โค้ด -->
+  <div class="card">
+    <h3>✍️ เขียนโค้ด</h3>
+
+    <textarea id="codeInput" placeholder="สร้างเว็บของคุณที่นี่..."></textarea>
+
+    <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/boss1.js"></script>
+
+</body>
+</html>

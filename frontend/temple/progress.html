@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevQuest - Progress</title>
+<link rel="stylesheet" href="/static/css/progress.css">
+<script src="/static/js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Dev<span>Quest</span></h2>
+
+    <nav class="menu">
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="quest.html">⚔️ ภารกิจ</a>
+      <a href="simcode.html">💻 ทดลองโค้ด</a>
+      <a href="progress.html" class="active">📊 ความคืบหน้า</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <h1>📊 ความคืบหน้าของคุณ</h1>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="card">
+        <h3>EXP ทั้งหมด</h3>
+        <p id="exp">0</p>
+      </div>
+
+      <div class="card">
+        <h3>เลเวล</h3>
+        <p id="level">1</p>
+      </div>
+
+      <div class="card">
+        <h3>ภารกิจที่ผ่าน</h3>
+        <p id="quest">0</p>
+      </div>
+
+      <div class="card">
+        <h3>ความคืบหน้า</h3>
+        <p id="percent">0%</p>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="chart-box">
+      <canvas id="progressChart"></canvas>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="/static/js/progress.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson Media</title>
+<link rel="stylesheet" href="/static/css/lesson12.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🎧🎬 Lesson: Media</h1>
+
+  <!-- อธิบาย -->
+  <div class="card">
+    <h3>🧠 ลองนึกภาพ</h3>
+    <p>
+      Media = เสียง + วิดีโอ  
+      เช่น เพลง 🎵 หรือคลิป 🎬
+    </p>
+
+    <div class="code-box">
+&lt;audio controls src="song.mp3"&gt;&lt;/audio&gt;<br>
+&lt;video controls src="video.mp4"&gt;&lt;/video&gt;
+    </div>
+  </div>
+
+  <!-- อธิบายเพิ่ม -->
+  <div class="card">
+    <h3>💡 ใช้ทำอะไร?</h3>
+    <ul>
+      <li>ใส่เพลง</li>
+      <li>ใส่วิดีโอ</li>
+      <li>ทำเว็บให้ดูน่าสนใจ</li>
+    </ul>
+  </div>
+
+  <!-- ภารกิจ -->
+  <div class="card">
+    <h3>🎯 ภารกิจ</h3>
+    <p>
+      สร้าง <b>&lt;video&gt;</b> ที่มีไฟล์ <b>video.mp4</b>  
+      และมี <b>controls</b>
+    </p>
+
+    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+
+    <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
+
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/lesson12.js"></script>
+
+</body>
+</html>

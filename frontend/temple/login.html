@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevQuest Login</title>
+  <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="card">
+  <div class="logo">🎮 Dev<span>Quest</span></div>
+
+  <div class="tabs">
+    <button id="loginTab" class="active">เข้าสู่ระบบ</button>
+    <button id="signupTab">สร้างบัญชี</button>
+  </div>
+
+  <form id="form">
+
+    <div class="input-group" id="emailGroup" style="display:none;">
+      <label>อีเมล</label>
+      <input type="email" id="email" placeholder="example@email.com">
+    </div>
+
+    <div class="input-group">
+      <label>ชื่อผู้ใช้</label>
+      <input type="text" id="username" placeholder="ใส่ชื่อของคุณ..." required>
+    </div>
+
+    <div class="input-group">
+      <label>รหัสผ่าน</label>
+      <input type="password" id="password" placeholder="ใส่รหัสผ่าน..." required>
+    </div>
+
+    <div class="input-group" id="confirmGroup" style="display:none;">
+      <label>ยืนยันรหัสผ่าน</label>
+      <input type="password" id="confirmPassword" placeholder="ยืนยันรหัสผ่าน">
+    </div>
+
+    <button type="submit" class="btn" id="submitBtn">ลุยเลย! (Login)</button>
+  </form>
+
+  <p id="message"></p>
+</div>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/login.js"></script>
+</body>
+</html>
