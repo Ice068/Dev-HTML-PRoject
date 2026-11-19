@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,22 +35,22 @@
   <div class="cards">
     <div class="card">
       <h3>EXP รวม</h3>
-      <div class="big">0</div>
+      <div class="big" id="totalExp">0</div>
     </div>
 
     <div class="card">
       <h3>เควสที่จบ</h3>
-      <div class="big">0/6</div>
+      <div class="big" id="questsDone">0/12</div>
     </div>
 
     <div class="card">
       <h3>บอสที่ชนะ</h3>
-      <div class="big">2</div>
+      <div class="big" id="bossesDone">0/2</div>
     </div>
 
     <div class="card">
       <h3>แรงค์ปัจจุบัน</h3>
-      <div class="big">Bronze</div>
+      <div class="big" id="currentRank">🥉 Bronze</div>
     </div>
   </div>
 
@@ -71,7 +71,7 @@
         <div class="quest-item">
             <h4>เรียนรู้การสร้าง Link</h4>
             <p>สร้างลิงก์ไปยังหน้าอื่น</p>
-            <span class="badge">+30 EXP</span>
+            <span class="badge">+50 EXP</span>
             <a href="/temple/lesson2.html" class="start-btn">ลุยเลย 🚀</a>
         </div>
 
@@ -86,7 +86,7 @@
 
     <!-- Profile -->
      <div class="profile">
-        <div class="level">Lv.0</div>
+        <div class="level">Lv.1</div>
         <h2 id="profileName">User</h2>
         <p>Rookie Front-end</p>
 

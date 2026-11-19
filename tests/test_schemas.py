@@ -29,7 +29,7 @@ def test_add_exp_accepts_valid_range(valid_exp):
     assert req.exp == valid_exp
 
 
-@pytest.mark.parametrize("bad_exp", [-10, 0, 1001, 999999])
+@pytest.mark.parametrize("bad_exp", [-10, 0, 1001, 999999, True, False])
 def test_add_exp_rejects_out_of_range(bad_exp):
     with pytest.raises(ValidationError):
         AddExpRequest(exp=bad_exp)

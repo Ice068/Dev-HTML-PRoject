@@ -15,13 +15,8 @@ SoloHint.init({
 function checkCode() {
   const code = document.getElementById("codeInput").value.toLowerCase();
   const result = document.getElementById("result");
+  if (!requireLogin()) return;
   const userId = localStorage.getItem("userId");
-
-  if (!userId) {
-    alert("❌ กรุณา login ก่อน");
-    window.location.href = "login.html";
-    return;
-  }
 
   if (localStorage.getItem(`boss1_done_${userId}`) === "done") {
     result.style.color = "#facc15";
@@ -43,19 +38,17 @@ function checkCode() {
   const missingGroups = checks.filter((c) => !c.ok).map((c) => c.group);
 
   if (passedCount === checks.length) {
-    SoloHint.renderSuccess(result, {
-      message: "👑 ผ่านด่าน BOSS! +200 EXP",
-    });
-
-    authFetch("/users/me/exp", { method: "PATCH", body: JSON.stringify({ exp: 200 }) })
-      .then((res) => res.json())
+    awardExp(200)
       .then(() => {
+        SoloHint.renderSuccess(result, {
+          message: "👑 ผ่านด่าน BOSS! +200 EXP",
+        });
         localStorage.setItem(`boss1_done_${userId}`, "done");
         setTimeout(() => (window.location.href = "dashboard.html"), 2400);
       })
-      .catch(() => {
-        result.style.color = "red";
-        result.textContent = "❌ เพิ่ม EXP ไม่สำเร็จ";
+      .catch((err) => {
+        result.style.color = "#f87171";
+        result.textContent = `❌ ${err.message || "เพิ่ม EXP ไม่สำเร็จ"}`;
       });
     return;
   }

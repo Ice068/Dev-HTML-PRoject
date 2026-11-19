@@ -15,28 +15,17 @@ SoloHint.init({
 function runCode() {
   const code = document.getElementById("codeArea").value;
   const output = document.getElementById("output");
-  const forbidden = ["<script", "javascript:", "onerror", "onload"];
-
-  for (let word of forbidden) {
-    if (code.toLowerCase().includes(word)) {
-      alert("❌ ห้ามใช้ JavaScript");
-      return;
-    }
+  const previewResult = renderSafePreview(output, code);
+  if (!previewResult.ok) {
+    alert(previewResult.reason);
   }
-
-  output.setAttribute("sandbox", "allow-same-origin");
-  output.srcdoc = code;
 }
 
 function checkCode() {
   const code = document.getElementById("codeArea").value.toLowerCase();
   const result = document.getElementById("result");
+  if (!requireLogin()) return;
   const userId = localStorage.getItem("userId");
-
-  if (!userId) {
-    alert("❌ กรุณา login ก่อน");
-    return;
-  }
 
   if (localStorage.getItem(`boss2_done_${userId}`) === "done") {
     result.style.color = "#facc15";
@@ -57,19 +46,17 @@ function checkCode() {
   const totalCount = structureCount + (hasContent ? 1 : 0);
 
   if (hasHtml && hasHead && hasBody && hasContent) {
-    SoloHint.renderSuccess(result, {
-      message: "👑 FINAL BOSS ผ่าน! +300 EXP",
-    });
-
-    authFetch("/users/me/exp", { method: "PATCH", body: JSON.stringify({ exp: 300 }) })
-      .then((res) => res.json())
+    awardExp(300)
       .then(() => {
+        SoloHint.renderSuccess(result, {
+          message: "👑 FINAL BOSS ผ่าน! +300 EXP",
+        });
         localStorage.setItem(`boss2_done_${userId}`, "done");
         setTimeout(() => (window.location.href = "dashboard.html"), 2400);
       })
-      .catch(() => {
-        result.style.color = "red";
-        result.textContent = "❌ เพิ่ม EXP ไม่สำเร็จ";
+      .catch((err) => {
+        result.style.color = "#f87171";
+        result.textContent = `❌ ${err.message || "เพิ่ม EXP ไม่สำเร็จ"}`;
       });
     return;
   }

@@ -14,13 +14,8 @@ SoloHint.init({
 function checkCode() {
   const code = document.getElementById("codeInput").value.toLowerCase();
   const result = document.getElementById("result");
+  if (!requireLogin()) return;
   const userId = localStorage.getItem("userId");
-
-  if (!userId) {
-    alert("❌ กรุณา login ก่อน");
-    window.location.href = "login.html";
-    return;
-  }
 
   // 🔒 กันทำซ้ำ
   if (localStorage.getItem(`lesson3_done_${userId}`) === "done") {
@@ -32,19 +27,17 @@ function checkCode() {
   const correct = /<h1>\s*my website\s*<\/h1>/i;
 
   if (correct.test(code)) {
-    SoloHint.renderSuccess(result, {
-      message: "🎉 ถูกต้อง! +20 EXP",
-    });
-
-    authFetch("/users/me/exp", { method: "PATCH", body: JSON.stringify({ exp: 20 }) })
-      .then((res) => res.json())
+    awardExp(20)
       .then(() => {
+        SoloHint.renderSuccess(result, {
+          message: "🎉 ถูกต้อง! +20 EXP",
+        });
         localStorage.setItem(`lesson3_done_${userId}`, "done");
         setTimeout(() => (window.location.href = "dashboard.html"), 2200);
       })
-      .catch(() => {
-        result.style.color = "red";
-        result.textContent = "❌ เพิ่ม EXP ไม่สำเร็จ";
+      .catch((err) => {
+        result.style.color = "#f87171";
+        result.textContent = `❌ ${err.message || "เพิ่ม EXP ไม่สำเร็จ"}`;
       });
     return;
   }

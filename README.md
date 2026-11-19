@@ -109,6 +109,7 @@ pytest -v
 | `GET` | `/` | ไม่ | ตรวจสถานะการทำงานของ API |
 | `POST` | `/auth/signup` | ไม่ | สมัครสมาชิก (rate limit 5/นาที) |
 | `POST` | `/auth/login` | ไม่ | เข้าสู่ระบบและรับ JWT (rate limit 10/นาที) |
+| `POST` | `/auth/logout` | ต้อง | ออกจากระบบและเพิกถอน JWT ทันที (rate limit 20/นาที) |
 | `GET` | `/users/me` | ต้อง | ดูข้อมูลตัวเอง (`id`, `username`, `exp`) |
 | `PATCH` | `/users/me/exp` | ต้อง | เพิ่ม EXP ให้ตัวเอง (`1–1000` ต่อครั้ง) |
 | `GET` | `/leaderboard` | ไม่ | อันดับ top 10 (`username`, `exp` เท่านั้น) |

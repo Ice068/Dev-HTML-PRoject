@@ -1,6 +1,6 @@
 """
 Pydantic schemas — ทำหน้าที่ validate input ทุกตัวก่อนแตะ Firestore
-(กัน injection / ข้อมูลขยะ / username แปลกๆ)
+(กัน injection / path traversal / CPU DoS / ข้อมูลขยะ)
 """
 import re
 
@@ -37,6 +37,21 @@ class LoginRequest(BaseModel):
     username: str
     password: str
 
+    @field_validator("username")
+    @classmethod
+    def validate_login_username(cls, v: str) -> str:
+        v = v.strip()
+        if not v or len(v) > 64:
+            raise ValueError("username ไม่ถูกต้อง")
+        return v
+
+    @field_validator("password")
+    @classmethod
+    def validate_login_password(cls, v: str) -> str:
+        if not v or len(v) > 128:
+            raise ValueError("password ไม่ถูกต้อง")
+        return v
+
 
 class UserPublic(BaseModel):
     id: str
@@ -57,6 +72,13 @@ class MessageResponse(BaseModel):
 
 class AddExpRequest(BaseModel):
     exp: int
+
+    @field_validator("exp", mode="before")
+    @classmethod
+    def reject_bool(cls, v):
+        if isinstance(v, bool):
+            raise ValueError("exp ต้องเป็นจำนวนเต็มระหว่าง 1-1000")
+        return v
 
     @field_validator("exp")
     @classmethod

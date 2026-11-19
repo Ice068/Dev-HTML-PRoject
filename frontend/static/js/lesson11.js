@@ -14,13 +14,8 @@ SoloHint.init({
 function checkCode() {
   const code = document.getElementById("codeInput").value.toLowerCase();
   const result = document.getElementById("result");
+  if (!requireLogin()) return;
   const userId = localStorage.getItem("userId");
-
-  if (!userId) {
-    alert("❌ กรุณา login ก่อน");
-    window.location.href = "login.html";
-    return;
-  }
 
   if (localStorage.getItem(`lesson11_done_${userId}`) === "done") {
     result.style.color = "#facc15";
@@ -36,19 +31,17 @@ function checkCode() {
   const count = [hasTable, hasTr, hasTdHtml, hasTdCss].filter(Boolean).length;
 
   if (hasTable && hasTr && hasTdHtml && hasTdCss) {
-    SoloHint.renderSuccess(result, {
-      message: "🎉 ถูกต้อง! คุณสร้าง Table ได้แล้ว +30 EXP",
-    });
-
-    authFetch("/users/me/exp", { method: "PATCH", body: JSON.stringify({ exp: 30 }) })
-      .then((res) => res.json())
+    awardExp(30)
       .then(() => {
+        SoloHint.renderSuccess(result, {
+          message: "🎉 ถูกต้อง! คุณสร้าง Table ได้แล้ว +30 EXP",
+        });
         localStorage.setItem(`lesson11_done_${userId}`, "done");
         setTimeout(() => (window.location.href = "dashboard.html"), 2200);
       })
-      .catch(() => {
-        result.style.color = "red";
-        result.textContent = "❌ เพิ่ม EXP ไม่สำเร็จ";
+      .catch((err) => {
+        result.style.color = "#f87171";
+        result.textContent = `❌ ${err.message || "เพิ่ม EXP ไม่สำเร็จ"}`;
       });
     return;
   }

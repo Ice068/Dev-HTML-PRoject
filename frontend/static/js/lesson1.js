@@ -15,13 +15,8 @@ function checkCode() {
   const rawCode = document.getElementById("codeInput").value.trim();
   const code = rawCode.toLowerCase();
   const result = document.getElementById("result");
+  if (!requireLogin()) return;
   const userId = localStorage.getItem("userId");
-
-  if (!userId) {
-    alert("❌ กรุณา login ก่อน");
-    window.location.href = "login.html";
-    return;
-  }
 
   // 🔒 กันทำซ้ำ
   if (localStorage.getItem(`lesson1_done_${userId}`) === "done") {
@@ -36,19 +31,17 @@ function checkCode() {
   const partsCount = [hasHtml, hasBody, hasGreeting].filter(Boolean).length;
 
   if (hasHtml && hasBody && hasGreeting) {
-    SoloHint.renderSuccess(result, {
-      message: "🎉 ถูกต้อง! +50 EXP",
-    });
-
-    authFetch("/users/me/exp", { method: "PATCH", body: JSON.stringify({ exp: 50 }) })
-      .then((res) => res.json())
+    awardExp(50)
       .then(() => {
+        SoloHint.renderSuccess(result, {
+          message: "🎉 ถูกต้อง! +50 EXP",
+        });
         localStorage.setItem(`lesson1_done_${userId}`, "done");
         setTimeout(() => (window.location.href = "dashboard.html"), 2200);
       })
-      .catch(() => {
-        result.style.color = "red";
-        result.textContent = "❌ เพิ่ม EXP ไม่สำเร็จ";
+      .catch((err) => {
+        result.style.color = "#f87171";
+        result.textContent = `❌ ${err.message || "เพิ่ม EXP ไม่สำเร็จ"}`;
       });
     return;
   }

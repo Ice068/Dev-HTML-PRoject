@@ -113,11 +113,12 @@ def fake_db():
 @pytest.fixture()
 def client(monkeypatch, fake_db):
     from app import dependencies
-    from app.core import firebase
+    from app.core import firebase, security
     from app.core.limiter import limiter
     from app.main import app
     from app.routers import auth, users
 
+    security.clear_revoked_tokens()
     monkeypatch.setattr(limiter, "enabled", False)
     monkeypatch.setattr(firebase, "get_firestore_client", lambda: fake_db)
     monkeypatch.setattr(dependencies, "get_firestore_client", lambda: fake_db)
@@ -126,3 +127,5 @@ def client(monkeypatch, fake_db):
 
     with TestClient(app) as test_client:
         yield test_client
+
+    security.clear_revoked_tokens()

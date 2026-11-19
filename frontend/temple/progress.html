@@ -6,7 +6,7 @@
 <title>DevQuest - Progress</title>
 <link rel="stylesheet" href="/static/css/progress.css">
 <script src="/static/js/config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -23,6 +23,8 @@
       <a href="simcode.html">💻 ทดลองโค้ด</a>
       <a href="progress.html" class="active">📊 ความคืบหน้า</a>
     </nav>
+
+    <button class="logout" onclick="logout()">ออกจากระบบ</button>
   </aside>
 
   <!-- Main -->
@@ -44,7 +46,7 @@
 
       <div class="card">
         <h3>ภารกิจที่ผ่าน</h3>
-        <p id="quest">0</p>
+        <p id="quest">0/14</p>
       </div>
 
       <div class="card">

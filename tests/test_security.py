@@ -47,3 +47,33 @@ def test_decode_expired_token_returns_none():
     expired_token = jwt.encode(expired_payload, settings.secret_key, algorithm=settings.algorithm)
 
     assert decode_access_token(expired_token) is None
+
+
+def test_revoked_token_is_rejected():
+    from app.core.security import clear_revoked_tokens, revoke_token
+
+    clear_revoked_tokens()
+    token = create_access_token(subject="hero_player")
+    assert decode_access_token(token) == "hero_player"
+    assert revoke_token(token) is True
+    assert decode_access_token(token) is None
+    clear_revoked_tokens()
+
+
+def test_settings_reject_weak_secret_and_unsafe_algorithm_and_wildcard_cors():
+    import pytest
+    from pydantic import ValidationError
+
+    from app.core.config import Settings
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, secret_key="short")
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, secret_key="CHANGE_ME_TO_A_LONG_RANDOM_SECRET")
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, secret_key="a" * 32, algorithm="none")
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, secret_key="a" * 32, allowed_origins="*")
