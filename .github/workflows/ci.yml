@@ -1,0 +1,113 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend (Lint & Test)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: "requirements*.txt"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Lint with Ruff
+        run: ruff check app tests
+
+      - name: Compile check
+        run: python -m compileall -q app tests
+
+      - name: Run unit & API tests
+        env:
+          SECRET_KEY: ci-test-secret-key-at-least-32-bytes-long
+          ALLOWED_ORIGINS: http://localhost:5500
+        run: pytest -v
+
+  frontend:
+    name: Frontend (JS Syntax & Asset Links)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check JavaScript syntax
+        run: |
+          set -euo pipefail
+          for f in frontend/static/js/*.js; do
+            echo "Checking $f"
+            node --check "$f"
+          done
+
+      - name: Verify HTML static asset references
+        run: |
+          python3 - <<'EOF'
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path("frontend")
+          missing = []
+          html_files = sorted((root / "temple").glob("*.html"))
+          if not html_files:
+              print("No HTML files found in frontend/temple/")
+              sys.exit(1)
+
+          for html in html_files:
+              text = html.read_text(encoding="utf-8")
+              for ref in re.findall(r'(?:href|src)="(/static/[^"]+)"', text):
+                  target = root / ref.lstrip("/")
+                  if not target.is_file():
+                      missing.append(f"{html.name} -> {ref}")
+
+          if missing:
+              print("Missing static assets referenced in HTML:")
+              for item in missing:
+                  print(f"  - {item}")
+              sys.exit(1)
+
+          print(f"Verified {len(html_files)} HTML files: all static assets exist.")
+          EOF
+
+  docker:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (no push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
