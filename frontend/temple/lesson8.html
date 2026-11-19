@@ -3,29 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson List</title>
+<title>Lesson 8: List</title>
 <link rel="stylesheet" href="/static/css/lesson8.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>📋 Lesson: List</h1>
+  <h1>📋 Lesson 8: List</h1>
 
   <!-- อธิบาย -->
   <div class="card">
     <h3>🧠 ลองนึกภาพ</h3>
     <p>
-      List = รายการ  
-      เหมือน “เมนูร้านอาหาร” 🍔
+      List = การจัดกลุ่มข้อมูลเป็นข้อ ๆ เหมือน “เมนูร้านอาหาร” 🍔 หรือรายการสิ่งที่ต้องทำ โดยจะมีแท็กแม่คลุมรายการทั้งหมด และแท็กลูกแทนแต่ละบรรทัด
     </p>
 
-    <div class="code-box">
-&lt;ul&gt;<br>
-&nbsp;&nbsp;&lt;li&gt;HTML&lt;/li&gt;<br>
-&nbsp;&nbsp;&lt;li&gt;CSS&lt;/li&gt;<br>
-&lt;/ul&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [เปิดกล่องรายการแบบจุด (Unordered List)]<br>
+      &nbsp;&nbsp;[รายการย่อยที่ 1] ... [/รายการย่อย]<br>
+      &nbsp;&nbsp;[รายการย่อยที่ 2] ... [/รายการย่อย]<br>
+      &nbsp;&nbsp;[รายการย่อยที่ 3] ... [/รายการย่อย]<br>
+      [ปิดกล่องรายการ]
     </div>
   </div>
 
@@ -33,21 +35,24 @@
   <div class="card">
     <h3>💡 ใช้ทำอะไร?</h3>
     <ul>
-      <li>เมนูเว็บไซต์</li>
-      <li>รายการสิ่งของ</li>
-      <li>To-do list</li>
+      <li>เมนูนำทางบนเว็บไซต์</li>
+      <li>รายการสินค้า สกิล หรือสิ่งของ</li>
+      <li>To-do list และสรุปหัวข้อย่อย</li>
     </ul>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- ภารกิจ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้าง <b>&lt;ul&gt;</b> ที่มีรายการ  
+      สร้างรายการแบบไม่เรียงลำดับตัวเลข (<b>ul</b>) ที่มี 3 รายการย่อย:
       <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดรายการที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -59,6 +64,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson8.js"></script>
 
 </body>

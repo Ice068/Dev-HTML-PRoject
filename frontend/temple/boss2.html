@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Final Boss Sandbox</title>
 <link rel="stylesheet" href="/static/css/boss2.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
@@ -17,21 +18,34 @@
   <div class="card">
     <h3>🔥 ภารกิจสุดท้าย</h3>
     <p>
-      สร้างเว็บไซต์อะไรก็ได้ 🎨  
-      แต่ต้องมีโครงสร้าง HTML ที่ถูกต้อง
+      สร้างเว็บไซต์อะไรก็ได้ตามไอเดียของคุณ 🎨
+      โดยต้องออกแบบโครงสร้างเอกสาร HTML ให้ครบสมบูรณ์และมีเนื้อหาจริงแสดงผลในหน้าเว็บ
     </p>
 
     <ul>
-      <li>ต้องมี html / head / body</li>
-      <li>ต้องมีเนื้อหาอย่างน้อย 1 อย่าง</li>
+      <li>มีโครงสร้างเอกสาร HTML ครบทั้ง 3 ชั้นหลัก (กรอบเอกสาร, ส่วนหัวข้อมูลเบื้องหลัง, ส่วนลำตัวแสดงผล)</li>
+      <li>มีองค์ประกอบเนื้อหาอย่างน้อย 1 อย่างอยู่ในส่วนแสดงผล (เช่น หัวข้อ ย่อหน้า รูปภาพ หรือรายการ)</li>
+      <li>ทดลองกด <b>▶ Run</b> เพื่อตรวจสอบผลลัพธ์จริงด้วยสายตาตัวเองก่อนส่ง!</li>
     </ul>
+
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ โครงร่างเอกสารระดับ Extended Abstract (ไม่ใช่เฉลยโค้ด)</span><br>
+      [กรอบเอกสารทั้งหน้า]<br>
+      &nbsp;&nbsp;├─ [ส่วนสมองของเอกสาร (ข้อมูลเบื้องหลัง / ชื่อแท็บ)]<br>
+      &nbsp;&nbsp;└─ [ส่วนแสดงผลหลัก]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ [เนื้อหาที่ออกแบบเอง: หัวข้อ / ย่อหน้า / รูปภาพ / รายการ / ปุ่ม / ตาราง]<br>
+      [ปิดกรอบเอกสาร]
+    </div>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- editor -->
   <div class="card">
     <h3>💻 เขียนโค้ด</h3>
 
-    <textarea id="codeArea" placeholder="เริ่มสร้างเว็บของคุณ..."></textarea>
+    <textarea id="codeArea" placeholder="เริ่มสร้างเว็บเต็มรูปแบบของคุณที่นี่..."></textarea>
 
     <button class="btn" onclick="runCode()">▶ Run</button>
     <button class="btn" onclick="checkCode()">✔ ตรวจ</button>
@@ -46,6 +60,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/boss2.js"></script>
 
 </body>

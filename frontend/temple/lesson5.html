@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 5: Footer</title>
     <link rel="stylesheet" href="/static/css/lesson5.css">
+    <link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 <body>
     <div class="container">
-        <h1>📦 Lesson: Footer</h1>
+        <h1>📦 Lesson 5: Footer</h1>
         <!-- อธิบาย -->
          <div class="card">
             <h3>🧠 ลองนึกภาพแบบนี้</h3>
             <p>
-                Footer = "ส่วนท้ายของเว็บ"
-                เหมือนเครดิตท้ายคลิป 🎬
+                Footer = "ส่วนท้ายของหน้าเว็บ" เหมือนเครดิตท้ายคลิป 🎬 ที่อยู่ล่างสุดของหน้าเสมอ
             </p>
 
-            <div class="code-box">
-                &lt;footer&gt;<br>
-                &nbsp;&nbsp;© 2026 My Website<br>
-                &lt;/footer&gt;
+            <div class="solo-concept-box">
+                <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+                [เปิดส่วนท้ายของเอกสาร]<br>
+                &nbsp;&nbsp;ข้อมูลเครดิต / ลิขสิทธิ์ / ช่องทางติดต่อ<br>
+                [ปิดส่วนท้ายของเอกสาร]
             </div>
          </div>
 
@@ -28,21 +29,24 @@
           <div class="card">
             <h3>💡 ใช้ทำอะไร?</h3>
             <ul>
-                <li>📞 ติดต่อเรา</li>
-                <li>📧 Email</li>
-                <li>© ลิขสิทธิ์</li>
+                <li>📞 ข้อมูลติดต่อเรา</li>
+                <li>📧 อีเมลหรือลิงก์โซเชียล</li>
+                <li>© ข้อความลิขสิทธิ์ของเว็บไซต์</li>
             </ul>
           </div>
+
+          <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+          <div id="soloHintMount"></div>
 
           <!-- ภารกิจ -->
            <div class="card">
             <h3>🎯 ภารกิจ</h3>
             <p>
-                สร้าง <b>&lt;footer&gt;</b> ที่มีข้อความ
-                <b>© 2026 My Website</b>
+                สร้างส่วนท้ายของหน้าเว็บด้วยแท็ก <b>footer</b> ที่มีข้อความ
+                <b>© 2026 My Website</b> อยู่ด้านใน
             </p>
 
-            <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+            <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดส่วนท้ายหน้าเว็บที่นี่..."></textarea>
             <button class="btn" onclick="checkCode()">ตรวจสอบ</button>
             <div class="result" id="result"></div>
            </div>
@@ -50,6 +54,7 @@
 
     </div>
     <script src="/static/js/config.js"></script>
-<script src="/static/js/lesson5.js"></script>
+    <script src="/static/js/solo-hint.js"></script>
+    <script src="/static/js/lesson5.js"></script>
 </body>
 </html>

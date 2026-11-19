@@ -3,27 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson Div</title>
+<title>Lesson 10: Div / Section</title>
 <link rel="stylesheet" href="/static/css/lesson10.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>📦 Lesson: Div / Section</h1>
+  <h1>📦 Lesson 10: Div / Section</h1>
 
   <!-- อธิบาย -->
   <div class="card">
     <h3>🧠 ลองนึกภาพ</h3>
     <p>
-      div = กล่อง 📦  
-      section = ส่วนเนื้อหา 📄
+      การแบ่งสัดส่วนหน้าเว็บเหมือนการจัดห้องด้วยกล่องและโซน:
+      <b>Division (กล่องทั่วไป)</b> ใช้จัดกลุ่มเพื่อจัดเลย์เอาต์ และ
+      <b>Section (ส่วนเนื้อหา)</b> ใช้แบ่งหมวดหมู่เนื้อหาที่มีหัวเรื่องชัดเจน
     </p>
 
-    <div class="code-box">
-&lt;div&gt;กล่อง&lt;/div&gt;<br>
-&lt;section&gt;เนื้อหา&lt;/section&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [เปิดกล่องจัดเลย์เอาต์ทั่วไป] ...ข้อความในกล่อง... [ปิดกล่อง]<br>
+      [เปิดส่วนเนื้อหาเชิงความหมาย] ...ข้อความในส่วนเนื้อหา... [ปิดส่วนเนื้อหา]
     </div>
   </div>
 
@@ -31,21 +34,24 @@
   <div class="card">
     <h3>💡 ใช้ทำอะไร?</h3>
     <ul>
-      <li>จัด layout หน้าเว็บ</li>
-      <li>แบ่งเนื้อหาเป็นส่วน</li>
-      <li>ใช้คู่กับ CSS</li>
+      <li>จัดโครงสร้างและเลย์เอาต์หน้าเว็บเป็นสัดส่วน</li>
+      <li>แบ่งเนื้อหาออกเป็นหมวดหมู่ที่อ่านเข้าใจง่าย</li>
+      <li>ใช้ควบคู่กับ CSS เพื่อตกแต่งแต่ละส่วนแยกกัน</li>
     </ul>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- ภารกิจ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้าง <b>&lt;div&gt;</b> ที่มีข้อความ <b>กล่อง</b>  
-      และ <b>&lt;section&gt;</b> ที่มีข้อความ <b>เนื้อหา</b>
+      สร้างกล่องทั่วไป (<b>div</b>) ที่มีข้อความ <b>กล่อง</b>
+      และส่วนเนื้อหา (<b>section</b>) ที่มีข้อความ <b>เนื้อหา</b>
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดแบ่งส่วนหน้าเว็บที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -57,6 +63,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson10.js"></script>
 
 </body>

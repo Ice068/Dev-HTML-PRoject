@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 1 - HTML Structure</title>
     <link rel="stylesheet" href="/static/css/lesson1.css">
+    <link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 <body>
     <div class="container">
@@ -16,20 +17,21 @@
     <h3>🧠 ลองนึกภาพแบบนี้</h3>
 
     <p>
-      การเขียน HTML เหมือนกับการสร้าง “บ้าน 1 หลัง” 🏠
+      การเขียน HTML เหมือนกับการสร้าง “บ้าน 1 หลัง” 🏠 โดยแต่ละชั้นจะซ้อนอยู่ข้างในกัน
     </p>
 
     <ul>
-      <li><b>&lt;html&gt;</b> = บ้านทั้งหลัง</li>
-      <li><b>&lt;head&gt;</b> = สมอง (ข้อมูลเบื้องหลัง เช่น title)</li>
-      <li><b>&lt;body&gt;</b> = ตัวบ้านที่เราเห็น</li>
+      <li><b>ชั้นนอกสุด</b> = โครงบ้านทั้งหลัง (ครอบทุกอย่างไว้ด้านใน)</li>
+      <li><b>ส่วนหัว (สมอง)</b> = ข้อมูลเบื้องหลังของหน้าเว็บ เช่น ชื่อแท็บ</li>
+      <li><b>ส่วนลำตัว (ตัวบ้าน)</b> = พื้นที่แสดงข้อความและเนื้อหาที่คนเห็นจริง</li>
     </ul>
 
-    <div class="code-box">
-&lt;html&gt;  ← บ้านทั้งหลัง 🏠<br>
-&nbsp;&nbsp;&lt;head&gt;&lt;/head&gt; ← สมอง 🧠<br>
-&nbsp;&nbsp;&lt;body&gt;Hello World&lt;/body&gt; ← สิ่งที่คนเห็น 👀<br>
-&lt;/html&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [เปิดโครงบ้านทั้งหลัง 🏠]<br>
+      &nbsp;&nbsp;[ส่วนสมอง 🧠 ข้อมูลเบื้องหลัง]<br>
+      &nbsp;&nbsp;[ส่วนลำตัว 👀 เนื้อหาที่ต้องการแสดงบนหน้าจอ]<br>
+      [ปิดโครงบ้านทั้งหลัง]
     </div>
   </div>
 
@@ -37,21 +39,21 @@
   <div class="card">
     <h3>💡 เข้าใจง่าย ๆ</h3>
     <p>
-      สิ่งที่แสดงบนหน้าเว็บจริง ๆ คือ <b>&lt;body&gt;</b> เท่านั้น!
-    </p>
-    <p>
-      ถ้าเขียน <b>Hello World</b> ใน body → คนจะเห็นข้อความนี้
+      เบราว์เซอร์จะอ่านโครงสร้างจากชั้นนอกเข้าหาชั้นใน และสิ่งที่ผู้ใช้งานมองเห็นบนหน้าเว็บจริง ๆ จะอยู่ในส่วน “ตัวบ้าน” เท่านั้น
     </p>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- โจทย์ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้างโครงสร้าง HTML และให้มีคำว่า <b>Hello World</b> อยู่ใน &lt;body&gt;
+      สร้างโครงสร้าง HTML และให้มีคำว่า <b>Hello World</b> อยู่ในส่วนแสดงผลหลักของหน้าเว็บ
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ด HTML ของคุณที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -63,6 +65,7 @@
 
 </div>
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson1.js"></script>
 </body>
 </html>

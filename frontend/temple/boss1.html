@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boss Stage</title>
 <link rel="stylesheet" href="/static/css/boss1.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
@@ -17,39 +18,43 @@
   <div class="card">
     <h3>🔥 ภารกิจใหญ่</h3>
     <p>
-      สร้างเว็บแนะนำตัวเอง ที่มี:
+      รวมความรู้จากทุกบทเรียนที่ผ่านมา เพื่อสร้างหน้าเว็บแนะนำตัวเองที่มีองค์ประกอบครบทั้ง 6 กลุ่ม:
     </p>
 
     <ul>
-      <li>หัวข้อ (h1)</li>
-      <li>รูปภาพ (img)</li>
-      <li>รายการ (ul / li)</li>
-      <li>ลิงก์ (a)</li>
-      <li>ปุ่ม (button)</li>
-      <li>section หรือ div</li>
+      <li>หัวข้อหลักขนาดใหญ่สุด (บทที่ 3)</li>
+      <li>รูปภาพประกอบ (บทที่ 7)</li>
+      <li>รายการและข้อย่อย (บทที่ 8)</li>
+      <li>ลิงก์เชื่อมไปยังหน้าอื่น (บทที่ 2)</li>
+      <li>ปุ่มโต้ตอบ (บทที่ 9)</li>
+      <li>กล่องหรือส่วนแบ่งเนื้อหา (บทที่ 10)</li>
     </ul>
   </div>
 
-  <!-- ตัวอย่าง -->
+  <!-- แผนผังโครงสร้างแทนเฉลย -->
   <div class="card">
-    <h3>💡 ตัวอย่าง</h3>
+    <h3>🗺️ แผนผังโครงสร้างหน้าเว็บ (ไม่ใช่เฉลยโค้ด)</h3>
 
-    <div class="code-box">
-&lt;h1&gt;My Website&lt;/h1&gt;<br>
-&lt;img src="cat.jpg" alt="แมว"&gt;<br>
-&lt;ul&gt;<br>
-&lt;li&gt;HTML&lt;/li&gt;<br>
-&lt;/ul&gt;<br>
-&lt;a href="dashboard.html"&gt;กลับหน้าแรก&lt;/a&gt;<br>
-&lt;button&gt;กดฉัน&lt;/button&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🧭 โครงร่างระดับ Relational — ลองเชื่อมทุกบทเรียนเข้าด้วยกัน</span><br>
+      [กล่องแบ่งส่วนเนื้อหา]<br>
+      &nbsp;&nbsp;├─ [หัวข้อหลักแนะนำตัวเอง]<br>
+      &nbsp;&nbsp;├─ [รูปภาพ + แหล่งไฟล์ + คำอธิบายสำรอง]<br>
+      &nbsp;&nbsp;├─ [กลุ่มรายการ] → [รายการย่อยทักษะ/ความสนใจ]<br>
+      &nbsp;&nbsp;├─ [ลิงก์ไปยังหน้าอื่น]<br>
+      &nbsp;&nbsp;└─ [ปุ่มกดสั่งงาน]<br>
+      [ปิดกล่องแบ่งส่วนเนื้อหา]
     </div>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- พิมพ์โค้ด -->
   <div class="card">
     <h3>✍️ เขียนโค้ด</h3>
 
-    <textarea id="codeInput" placeholder="สร้างเว็บของคุณที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ออกแบบและสร้างเว็บแนะนำตัวของคุณที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -61,6 +66,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/boss1.js"></script>
 
 </body>

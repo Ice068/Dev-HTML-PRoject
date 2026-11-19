@@ -3,27 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson Media</title>
+<title>Lesson 12: Media</title>
 <link rel="stylesheet" href="/static/css/lesson12.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>🎧🎬 Lesson: Media</h1>
+  <h1>🎧🎬 Lesson 12: Media</h1>
 
   <!-- อธิบาย -->
   <div class="card">
     <h3>🧠 ลองนึกภาพ</h3>
     <p>
-      Media = เสียง + วิดีโอ  
-      เช่น เพลง 🎵 หรือคลิป 🎬
+      Media = การฝังเครื่องเล่นเสียง 🎵 หรือเครื่องเล่นวิดีโอ 🎬 ลงในหน้าเว็บโดยตรง
+      ซึ่งนอกจากระบุแหล่งไฟล์แล้ว เรายังสามารถเปิดแผงปุ่มควบคุม (เล่น / หยุด / เสียง) ให้ผู้ใช้กดเองได้ด้วย
     </p>
 
-    <div class="code-box">
-&lt;audio controls src="song.mp3"&gt;&lt;/audio&gt;<br>
-&lt;video controls src="video.mp4"&gt;&lt;/video&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [เปิดเครื่องเล่นสื่อ + เปิดแผงควบคุม + แหล่งที่มา="ชื่อไฟล์สื่อ"] [ปิดเครื่องเล่นสื่อ]
     </div>
   </div>
 
@@ -31,21 +32,24 @@
   <div class="card">
     <h3>💡 ใช้ทำอะไร?</h3>
     <ul>
-      <li>ใส่เพลง</li>
-      <li>ใส่วิดีโอ</li>
-      <li>ทำเว็บให้ดูน่าสนใจ</li>
+      <li>เล่นเพลงหรือเสียงประกอบบนหน้าเว็บ</li>
+      <li>แสดงคลิปวิดีโอการสอนหรือตัวอย่างผลงาน</li>
+      <li>ช่วยให้ผู้ใช้ควบคุมการเล่น/หยุด/ปรับเสียงได้เอง</li>
     </ul>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- ภารกิจ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้าง <b>&lt;video&gt;</b> ที่มีไฟล์ <b>video.mp4</b>  
-      และมี <b>controls</b>
+      สร้างเครื่องเล่นวิดีโอ (<b>video</b>) ที่ชี้ไปยังไฟล์ <b>video.mp4</b>
+      และเปิดแผงปุ่มควบคุม (<b>controls</b>) ให้ผู้ใช้กดเล่นได้
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดเครื่องเล่นวิดีโอที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -57,6 +61,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson12.js"></script>
 
 </body>

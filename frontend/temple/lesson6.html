@@ -3,30 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson Navbar</title>
+<title>Lesson 6: Navbar</title>
 <link rel="stylesheet" href="/static/css/lesson6.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>🧭 Lesson: Navbar</h1>
+  <h1>🧭 Lesson 6: Navbar</h1>
 
   <!-- อธิบาย -->
   <div class="card">
     <h3>🧠 ลองนึกภาพ</h3>
     <p>
-      Navbar = เมนูด้านบนเว็บ  
-      เหมือน “ปุ่มเลือกด่าน” 🎮
+      Navbar = แถบนำทางด้านบนของเว็บไซต์ เหมือน “ปุ่มเลือกด่าน” 🎮 ที่รวมลิงก์สำคัญไว้ในพื้นที่เดียวกัน
     </p>
 
-    <div class="code-box">
-&lt;nav&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;Home&lt;/a&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;About&lt;/a&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;Contact&lt;/a&gt;<br>
-&lt;/nav&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [เปิดพื้นที่นำทาง (Navigation)]<br>
+      &nbsp;&nbsp;[ลิงก์ไปยังหน้า A]<br>
+      &nbsp;&nbsp;[ลิงก์ไปยังหน้า B]<br>
+      &nbsp;&nbsp;[ลิงก์ไปยังหน้า C]<br>
+      [ปิดพื้นที่นำทาง]
     </div>
   </div>
 
@@ -34,20 +35,23 @@
   <div class="card">
     <h3>💡 สำคัญยังไง?</h3>
     <ul>
-      <li>ช่วยให้ผู้ใช้ไปหน้าอื่นได้</li>
-      <li>ทุกเว็บต้องมี 🔥</li>
+      <li>ช่วยให้ผู้ใช้สลับไปยังหน้าสำคัญของเว็บได้ทันที</li>
+      <li>บอกเบราว์เซอร์และโปรแกรมอ่านหน้าจอว่านี่คือแถบนำทางหลัก</li>
     </ul>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- ภารกิจ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้าง <b>&lt;nav&gt;</b> ที่มีลิงก์  
-      <b>Home</b>, <b>About</b>, <b>Contact</b>
+      สร้างแถบนำทาง (<b>nav</b>) ที่มีลิงก์
+      <b>Home</b>, <b>About</b> และ <b>Contact</b> อยู่ด้านใน
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ด Navbar ที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -59,6 +63,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson6.js"></script>
 
 </body>

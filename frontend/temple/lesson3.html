@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lesson 3 - Heading</title>
 <link rel="stylesheet" href="/static/css/lesson3.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
@@ -16,19 +17,18 @@
   <!-- อธิบาย -->
   <div class="card">
     <h3>🧠 ลองนึกภาพแบบนี้</h3>
-    <p>Heading = หัวข้อของบทความ 📚</p>
+    <p>Heading = ลำดับชั้นหัวข้อของหนังสือหรือบทความ 📚 ยิ่งตัวเลขน้อย ยิ่งเป็นหัวข้อสำคัญและขนาดใหญ่</p>
 
     <ul>
-      <li>&lt;h1&gt; = ใหญ่สุด (หัวข้อหลัก)</li>
-      <li>&lt;h2&gt; = รองลงมา</li>
-      <li>...</li>
-      <li>&lt;h6&gt; = เล็กสุด</li>
+      <li><b>ระดับที่ 1</b> = หัวข้อหลักใหญ่ที่สุดของหน้า</li>
+      <li><b>ระดับที่ 2</b> = หัวข้อรองลงมา</li>
+      <li><b>ระดับที่ 3 – 6</b> = หัวข้อย่อยไล่เล็กลงไปตามลำดับ</li>
     </ul>
 
-    <div class="code-box">
-&lt;h1&gt;หัวข้อใหญ่&lt;/h1&gt;<br>
-&lt;h2&gt;หัวข้อรอง&lt;/h2&gt;<br>
-&lt;h3&gt;หัวข้อย่อย&lt;/h3&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [เปิดหัวข้อระดับที่สำคัญที่สุด] ชื่อหัวข้อหลัก [ปิดหัวข้อระดับเดียวกัน]<br>
+      &nbsp;&nbsp;[เปิดหัวข้อระดับรอง] ชื่อหัวข้อรอง [ปิดหัวข้อระดับรอง]
     </div>
   </div>
 
@@ -36,19 +36,21 @@
   <div class="card">
     <h3>💡 เข้าใจง่าย ๆ</h3>
     <p>
-      เหมือน “หัวข้อหนังสือ” 📖  
-      ยิ่งสำคัญ → ยิ่งใช้ h1
+      เหมือน “สารบัญหนังสือ” 📖 ที่บอกทั้งคนอ่านและเครื่องมือค้นหาว่าหัวข้อไหนสำคัญที่สุดในหน้าเว็บ
     </p>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- โจทย์ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้าง <b>h1</b> ที่มีข้อความว่า <b>My Website</b>
+      สร้างหัวข้อระดับใหญ่ที่สุด (<b>h1</b>) ที่มีข้อความว่า <b>My Website</b>
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดหัวข้อที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -60,6 +62,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson3.js"></script>
 
 </body>

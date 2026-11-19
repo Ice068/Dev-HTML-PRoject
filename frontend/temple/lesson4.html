@@ -5,39 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lesson - Sidebar</title>
 <link rel="stylesheet" href="/static/css/lesson4.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>📚 Lesson: สร้าง Sidebar</h1>
+  <h1>📚 Lesson 4: สร้าง Sidebar</h1>
 
   <!-- อธิบาย -->
   <div class="card">
     <h3>🧠 Sidebar คืออะไร?</h3>
     <p>
-      Sidebar คือแถบเมนูด้านข้างของเว็บไซต์  
-      ใช้สำหรับนำทางไปยังหน้าอื่น เช่น Dashboard, ภารกิจ, โปรไฟล์
+      Sidebar คือแถบเมนูด้านข้างของเว็บไซต์
+      ทำหน้าที่เป็นกล่องรวมรายการนำทางไปยังหน้าอื่น เช่น หน้าแรก, ภารกิจ, ข้อมูล
     </p>
   </div>
 
-  <!-- ตัวอย่าง -->
+  <!-- แผนภาพโครงสร้าง -->
   <div class="card">
-    <h3>💡 ตัวอย่างโค้ด</h3>
+    <h3>🧩 แนวคิดโครงสร้าง</h3>
 
-    <div class="code-box">
-&lt;div class="sidebar"&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;หน้าแรก&lt;/a&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;ภารกิจ&lt;/a&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;โปรไฟล์&lt;/a&gt;<br>
-&lt;/div&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [กล่องครอบแถบข้าง กำหนดชื่อกลุ่ม "sidebar"]<br>
+      &nbsp;&nbsp;[ลิงก์เมนูที่ 1]<br>
+      &nbsp;&nbsp;[ลิงก์เมนูที่ 2]<br>
+      &nbsp;&nbsp;[ลิงก์เมนูที่ 3]<br>
+      [ปิดกล่องแถบข้าง]
     </div>
   </div>
 
   <!-- แสดงผล -->
   <div class="card">
-    <h3>👀 ตัวอย่าง Sidebar จริง</h3>
+    <h3>👀 ตัวอย่างหน้าตา Sidebar จริง</h3>
 
     <div class="demo">
       <div class="sidebar-demo">
@@ -48,17 +50,20 @@
     </div>
   </div>
 
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
+
   <!-- ภารกิจ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้าง Sidebar ที่มี 3 เมนู:
+      สร้าง Sidebar ที่มีชื่อกลุ่ม <b>sidebar</b> และมี 3 เมนูด้านใน:
       <br>👉 หน้าแรก
       <br>👉 ภารกิจ
       <br>👉 ข้อมูล
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ด Sidebar ที่นี่..."></textarea>
 
     <button onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -70,6 +75,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson4.js"></script>
 
 </body>

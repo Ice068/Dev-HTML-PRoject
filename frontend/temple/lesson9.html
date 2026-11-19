@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 9: Button</title>
     <link rel="stylesheet" href="/static/css/lesson9.css">
+    <link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 <body>
     <div class="container">
-        <h1>📋 Lesson: Button</h1>
+        <h1>🔘 Lesson 9: Button</h1>
 
         <!-- อธิบาย -->
          <div class="card">
             <h3>🧠 ลองนึกภาพ</h3>
             <p>
-                Button = ปุ่มที่ผู้ใช้ “กด”
-                เช่น ปุ่ม Login / Submit
+                Button = ปุ่มกดสั่งงานบนหน้าเว็บ เช่น ปุ่มเข้าสู่ระบบ ปุ่มส่งคำตอบ หรือปุ่มเริ่มเกม
             </p>
 
-            <div class="code-box">
-                &lt;button&gt;คลิกฉัน&lt;/button&gt;
+            <div class="solo-concept-box">
+                <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+                [เปิดปุ่มสั่งงาน] ป้ายข้อความที่อยู่บนหน้าปุ่ม [ปิดปุ่มสั่งงาน]
             </div>
          </div>
 
@@ -27,25 +28,29 @@
           <div class="card">
             <h3>💡 ใช้ทำอะไร?</h3>
             <ul>
-                <li>ส่งฟอร์ม</li>
-                <li>เปิดหน้าต่างใหม่</li>
-                <li>เรียกฟังก์ชัน JavaScript</li>
+                <li>ส่งข้อมูลในแบบฟอร์ม</li>
+                <li>เปิดหน้าต่างโต้ตอบหรือเริ่มทำงานคำสั่ง</li>
+                <li>เรียกฟังก์ชัน JavaScript เมื่อผู้ใช้คลิก</li>
             </ul>
           </div>
+
+          <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+          <div id="soloHintMount"></div>
 
           <!-- ภารกิจ -->
            <div class="card">
             <h3>🎯 ภารกิจ</h3>
             <p>
-                สร้างปุ่มที่มีข้อความ <b>เริ่มเกม</b>
+                สร้างปุ่มที่มีข้อความว่า <b>เริ่มเกม</b>
             </p>
-            <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+            <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดสร้างปุ่มที่นี่..."></textarea>
             <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
             <div class="result" id="result"></div>
            </div>
             <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
     </div>
     <script src="/static/js/config.js"></script>
-<script src="/static/js/lesson9.js"></script>
+    <script src="/static/js/solo-hint.js"></script>
+    <script src="/static/js/lesson9.js"></script>
 </body>
 </html>

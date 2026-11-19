@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 2 - Link</title>
     <link rel="stylesheet" href="/static/css/lesson2.css">
+    <link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 <body>
     <div class="container">
@@ -13,38 +14,43 @@
          <div class="card">
             <h3>🧠 ลองนึกภาพแบบนี้</h3>
             <p>
-                ลิงก์ = “ประตูวาร์ป” 🌀 ไปยังหน้าอื่น
+                ลิงก์ = “ประตูวาร์ป” 🌀 ที่พาผู้ใช้งานกระโดดไปยังอีกหน้าหนึ่งได้เมื่อกดคลิก
             </p>
 
             <ul>
-                <li><b>&lt;a&gt;</b> = ปุ่ม/ข้อความที่กดได้</b></li>
-                <li><b>href</b> = ปลายทางที่เราจะไป</li>
+                <li><b>ตัวประตู (Anchor)</b> = องค์ประกอบที่ทำให้ข้อความหรือปุ่มคลิกได้</li>
+                <li><b>พิกัดปลายทาง (Hypertext Reference)</b> = คุณสมบัติที่บอกว่ากดแล้วจะวาร์ปไปไฟล์ไหน</li>
+                <li><b>ป้ายหน้าประตู</b> = ข้อความที่ผู้ใช้งานมองเห็นและคลิก</li>
             </ul>
 
-            <div class="code-box">
-                &lt;a href="page2.html"&gt;ไปหน้า 2&lt;/a&gt;
+            <div class="solo-concept-box">
+                <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+                [เปิดประตูวาร์ป + กำหนดพิกัดปลายทาง="ชื่อไฟล์เป้าหมาย"] ป้ายข้อความที่กดได้ [ปิดประตูวาร์ป]
             </div>
          </div>
          <!-- อธิบายเพิ่ม -->
           <div class="card">
-            <h3>💡 ตัวอย่างการใช้งาน</h3>
+            <h3>💡 หลักการทำงาน</h3>
             <p>
-                ถ้าคลิก “ไปหน้า 2” → จะเปิดไฟล์ page2.html
+                เมื่อผู้ใช้คลิกข้อความบนป้ายประตู เบราว์เซอร์จะอ่านค่าพิกัดปลายทางที่ระบุไว้ในแท็กเปิด แล้วเปิดหน้านั้นทันที
             </p>
           </div>
+          <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+          <div id="soloHintMount"></div>
           <!-- โจทย์ -->
            <div class="card">
             <h3>🎯 ภารกิจ</h3>
             <p>
                 สร้างลิงก์ไปหน้า <b>dashboard.html</b> และให้มีข้อความว่า <b>ไป Dashboard</b>
             </p>
-            <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+            <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดสร้างลิงก์ที่นี่..."></textarea>
             <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
             <div class="result" id="result"></div>
            </div>
            <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
     </div>
     <script src="/static/js/config.js"></script>
-<script src="/static/js/lesson2.js"></script>
+    <script src="/static/js/solo-hint.js"></script>
+    <script src="/static/js/lesson2.js"></script>
 </body>
 </html>

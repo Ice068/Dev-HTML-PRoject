@@ -1,47 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 7 Image</title>
+    <title>Lesson 7: Image</title>
     <link rel="stylesheet" href="/static/css/lesson7.css">
+    <link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 <body>
     <div class="container">
-        <h1>🖼️Lesson 7: Image</h1>
+        <h1>🖼️ Lesson 7: Image</h1>
 
         <!-- อธิบาย -->
          <div class="card">
             <h3>🧠 ลองนึกภาพ</h3>
             <p>
-                &lt;img&gt; = ใช้แสดงรูปภาพบนเว็บไซต์
-                เหมือน “ใส่รูปโปรไฟล์” 📸
+                การใส่รูปภาพบนหน้าเว็บเหมือน “ติดกรอบรูป” 📸 โดยตัวแท็กรูปภาพเป็นแท็กเดี่ยว (ไม่ต้องมีแท็กปิด) แต่ต้องบอกเบราว์เซอร์ 2 เรื่องผ่านคุณสมบัติ (attributes)
+            </p>
+            <div class="solo-concept-box">
+                <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+                [แท็กรูปภาพ + ที่อยู่ไฟล์รูป="ชื่อไฟล์รูป" + คำอธิบายสำรอง="ข้อความแทนรูป"]
+            </div>
+         </div>
+
+         <div class="card">
+            <h3>💡 ส่วนประกอบสำคัญ</h3>
+            <ul>
+                <li><b>แหล่งที่มา (Source)</b> = ระบุเส้นทางหรือชื่อไฟล์ของรูปภาพ</li>
+                <li><b>คำอธิบายสำรอง (Alternative Text)</b> = ข้อความที่แสดงแทนเมื่อรูปโหลดไม่ได้ และช่วยผู้พิการทางสายตา</li>
+            </ul>
+         </div>
+
+         <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+         <div id="soloHintMount"></div>
+
+         <!-- ภารกิจ -->
+         <div class="card">
+            <h3>🎯 ภารกิจ</h3>
+            <p>
+                สร้างรูปภาพที่มีคำว่า <b>cat</b> อยู่ในแหล่งที่มาของรูป (src)
+                และมีคำอธิบายสำรอง (alt) เป็น <b>แมว</b>
             </p>
 
-            <div class="card">
-                <h3>💡 ส่วนประกอบสำคัญ</h3>
-                <ul>
-                    <li><b>src</b> = ระบุเส้นทางของรูปภาพ</li>
-                    <li><b>alt</b> = ข้อความแสดงแทนรูปภาพ (ถ้ารูปภาพโหลดไม่ได้)</li>
-                </ul>
-            </div>
-
-            <!-- ภารกิจ -->
-             <div class="card">
-                <h3>🎯 ภารกิจ</h3>
-                <p>
-                    สร้างรูปภาพที่มีคำว่า <b>cat</b> ใน src 
-                    และมี alt = <b>แมว</b>
-                </p>
-
-                <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
-                <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
-                <div class="result" id="result"></div>
-             </div>
+            <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดแทรกรูปภาพที่นี่..."></textarea>
+            <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
+            <div class="result" id="result"></div>
          </div>
+
          <button class="btn" onclick="goBack()">⬅ กลับ Dashboard</button>
     </div>
     <script src="/static/js/config.js"></script>
-<script src="/static/js/lesson7.js"></script>
+    <script src="/static/js/solo-hint.js"></script>
+    <script src="/static/js/lesson7.js"></script>
 </body>
 </html>

@@ -3,51 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson Table</title>
+<title>Lesson 11: Table</title>
 <link rel="stylesheet" href="/static/css/lesson11.css">
+<link rel="stylesheet" href="/static/css/solo-hint.css">
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>📊 Lesson: Table</h1>
+  <h1>📊 Lesson 11: Table</h1>
 
   <!-- อธิบาย -->
   <div class="card">
     <h3>🧠 ลองนึกภาพ</h3>
     <p>
-      Table = ตาราง  
-      ใช้แสดงข้อมูลเป็นช่อง ๆ
+      Table = ตารางข้อมูลแบบมีโครงสร้างซ้อนกัน 3 ชั้น เหมือนตารางเรียนหรือชีตคำนวณ:
+      <b>ตัวตาราง → แถวแนวนอน → ช่องข้อมูลแต่ละช่อง</b>
     </p>
 
-    <div class="code-box">
-&lt;table&gt;<br>
-&nbsp;&nbsp;&lt;tr&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;1&lt;/td&gt;<br>
-&nbsp;&nbsp;&lt;/tr&gt;<br>
-&lt;/table&gt;
+    <div class="solo-concept-box">
+      <span class="solo-concept-label">🗺️ แผนภาพแนวคิด (ไม่ใช่เฉลยโค้ด)</span><br>
+      [เปิดตารางทั้งตาราง (Table)]<br>
+      &nbsp;&nbsp;[เปิดแถวแนวนอน (Table Row)]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;[ช่องข้อมูลที่ 1 (Table Data)] ... [/ช่องข้อมูล]<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;[ช่องข้อมูลที่ 2 (Table Data)] ... [/ช่องข้อมูล]<br>
+      &nbsp;&nbsp;[ปิดแถวแนวนอน]<br>
+      [ปิดตารางทั้งตาราง]
     </div>
   </div>
 
   <!-- อธิบายเพิ่ม -->
   <div class="card">
-    <h3>💡 ส่วนประกอบ</h3>
+    <h3>💡 ลำดับชั้น 3 ส่วนประกอบ</h3>
     <ul>
-      <li><b>&lt;table&gt;</b> = ตาราง</li>
-      <li><b>&lt;tr&gt;</b> = แถว</li>
-      <li><b>&lt;td&gt;</b> = ช่องข้อมูล</li>
+      <li><b>ชั้นนอก (Table)</b> = กรอบของตารางทั้งหมด</li>
+      <li><b>ชั้นกลาง (Table Row)</b> = แถวแนวนอนในตาราง</li>
+      <li><b>ชั้นในสุด (Table Data)</b> = ช่องข้อมูลแต่ละเซลล์ภายในแถว</li>
     </ul>
   </div>
+
+  <!-- ระบบแอบบอกใบ้ตามหลัก SOLO -->
+  <div id="soloHintMount"></div>
 
   <!-- ภารกิจ -->
   <div class="card">
     <h3>🎯 ภารกิจ</h3>
     <p>
-      สร้างตารางที่มีข้อมูล <b>HTML</b> และ <b>CSS</b>
+      สร้างตารางที่มีข้อมูล <b>HTML</b> และ <b>CSS</b> อยู่ในช่องข้อมูลของตาราง
     </p>
 
-    <textarea id="codeInput" placeholder="ลองพิมพ์โค้ดที่นี่..."></textarea>
+    <textarea id="codeInput" placeholder="ลองออกแบบและพิมพ์โค้ดตาราง 3 ชั้นที่นี่..."></textarea>
 
     <button class="btn" onclick="checkCode()">ตรวจคำตอบ</button>
 
@@ -59,6 +65,7 @@
 </div>
 
 <script src="/static/js/config.js"></script>
+<script src="/static/js/solo-hint.js"></script>
 <script src="/static/js/lesson11.js"></script>
 
 </body>
