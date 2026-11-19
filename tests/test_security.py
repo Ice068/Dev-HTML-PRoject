@@ -77,3 +77,14 @@ def test_settings_reject_weak_secret_and_unsafe_algorithm_and_wildcard_cors():
 
     with pytest.raises(ValidationError):
         Settings(_env_file=None, secret_key="a" * 32, allowed_origins="*")
+
+
+def test_limiter_ignores_utf8_dotenv_file(tmp_path, monkeypatch):
+    from slowapi import Limiter
+    from slowapi.util import get_remote_address
+
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / ".env").write_text("# คอมเมนต์ภาษาไทย UTF-8\nSECRET_KEY=dummy\n", encoding="utf-8")
+
+    test_limiter = Limiter(key_func=get_remote_address, config_filename="")
+    assert test_limiter.enabled is True
