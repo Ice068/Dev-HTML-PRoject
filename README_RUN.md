@@ -1,114 +1,228 @@
-# คู่มือเปิด DevQuest บน Windows
+# 🚀 คู่มือการติดตั้งและรันโปรเจกต์ DevQuest
 
-โปรเจกต์อยู่ที่ `D:\Dev-HTML-PRoject` ใช้ Python FastAPI เป็น Backend และ HTML/CSS/JavaScript เป็น Frontend
+คู่มือนี้สรุปขั้นตอนการรัน **DevQuest** แบบครบถ้วนทั้ง Backend (**FastAPI + Firebase Firestore**) และ Frontend (**HTML/CSS/JS** พร้อมระบบแอบบอกใบ้ตามหลัก **SOLO Taxonomy**) รองรับทั้ง **Windows (PowerShell)** และ **macOS / Linux**
 
-## 1. ตั้งค่า CORS
+---
 
-เปิดไฟล์ `D:\Dev-HTML-PRoject\.env` แล้วแก้เฉพาะบรรทัด `ALLOWED_ORIGINS` เป็น:
+## 📋 สิ่งที่ต้องเตรียมก่อนเริ่ม
+
+- **Python 3.12+** (แนะนำ Python 3.12)
+- **Git**
+- **บัญชี Firebase** พร้อมสร้าง Firestore Database และไฟล์ Service Account Key (`.json`)
+- *(ตัวเลือก)* **Node.js 22+** สำหรับตรวจ syntax ฝั่ง Frontend
+- *(ตัวเลือก)* **Docker** หากต้องการรัน Backend ผ่านคอนเทนเนอร์
+
+---
+
+## 1. โคลนโปรเจกต์และเลือก Branch
+
+```bash
+git clone https://github.com/Ice068/Dev-HTML-PRoject.git
+cd Dev-HTML-PRoject
+```
+
+หากต้องการใช้งานเวอร์ชันที่มีระบบแอบบอกใบ้ตามหลัก **SOLO Taxonomy** และชุดทดสอบ Backend ให้สลับมาที่ branch:
+
+```bash
+git checkout feat/solo-taxonomy-hints
+```
+
+---
+
+## 2. สร้าง Virtual Environment และติดตั้ง Dependencies
+
+### Windows (PowerShell)
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+> หากต้องการรันชุดทดสอบ (`pytest`) และตรวจโค้ด (`ruff`) ด้วย ให้ติดตั้งไฟล์ dev แทน:
+>
+> ```powershell
+> pip install -r requirements-dev.txt
+> ```
+
+### macOS / Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+# หรือสำหรับพัฒนาและรันเทสต์:
+# pip install -r requirements-dev.txt
+```
+
+---
+
+## 3. ตั้งค่า Firebase และไฟล์ `.env`
+
+### 3.1 เตรียม Firebase Firestore
+
+1. ไปที่ [Firebase Console](https://console.firebase.google.com) → สร้างหรือเลือกโปรเจกต์
+2. เปิดใช้งาน **Firestore Database** (Production mode)
+3. ไปที่ **Project settings → Service accounts → Generate new private key**
+4. บันทึกไฟล์ `.json` ที่ได้ไว้ที่โฟลเดอร์หลักของโปรเจกต์ในชื่อ `firebase-service-account.json`
+   *(ไฟล์นี้อยู่ใน `.gitignore` แล้ว **ห้าม commit ขึ้น Git เด็ดขาด**)*
+5. คัดลอกเนื้อหาในไฟล์ `firestore.rules` ไปวางที่ **Firestore Database → Rules** แล้วกด **Publish**
+
+### 3.2 สร้างไฟล์ `.env`
+
+คัดลอกจากไฟล์ตัวอย่าง:
+
+- **Windows (PowerShell):**
+  ```powershell
+  Copy-Item .env.example .env
+  ```
+- **macOS / Linux:**
+  ```bash
+  cp .env.example .env
+  ```
+
+สุ่มค่า `SECRET_KEY` ใหม่ด้วยคำสั่ง:
+
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+จากนั้นเปิดไฟล์ `.env` และกำหนดค่าให้ครบ (ตัวอย่างด้านล่างรองรับทั้งพอร์ต `5500` และ `5501`):
 
 ```dotenv
+SECRET_KEY=<วางค่าที่สุ่มได้ตรงนี้>
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+FIREBASE_CREDENTIALS_PATH=./firebase-service-account.json
 ALLOWED_ORIGINS=http://localhost:5500,http://127.0.0.1:5500,http://localhost:5501,http://127.0.0.1:5501
+ENABLE_DOCS=true
 ```
 
-เก็บค่าอื่น เช่น SECRET_KEY และการตั้งค่า Firebase ไว้ตามเดิม หลังแก้ `.env` ให้หยุดและเปิด Backend ใหม่
+> ⚠️ ทุกครั้งที่แก้ไขไฟล์ `.env` ต้องหยุดและเปิด Backend ใหม่เพื่อให้ค่าใหม่มีผล
 
-## 2. เปิด Backend
+---
 
-เปิด PowerShell หน้าต่างแรก แล้วรัน:
+## 4. รัน Backend (FastAPI — พอร์ต 8000)
 
-```powershell
-cd D:\Dev-HTML-PRoject
-.\venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000
-```
+เปิด **Terminal หน้าต่างที่ 1** ที่โฟลเดอร์โปรเจกต์ (พร้อมเปิดใช้งาน `.venv` แล้ว) และรัน:
 
-รอข้อความ `Application startup complete` และปล่อยหน้าต่างนี้รันไว้
+- **Windows (PowerShell):**
+  ```powershell
+  .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000
+  ```
+- **macOS / Linux:**
+  ```bash
+  uvicorn app.main:app --reload --port 8000
+  ```
 
-- ตรวจ Backend: <http://localhost:8000/>
-- API docs: <http://localhost:8000/docs> (เมื่อเปิด ENABLE_DOCS ไว้)
+เมื่อขึ้นข้อความ `Application startup complete.` แสดงว่า Backend พร้อมใช้งาน (ปล่อยหน้าต่างนี้เปิดค้างไว้)
 
-หากยังไม่ได้ติดตั้ง dependencies ให้รันจากโฟลเดอร์โปรเจกต์:
+- ตรวจสอบสถานะ API: <http://localhost:8000/>
+- ดูเอกสาร API (Swagger UI): <http://localhost:8000/docs> *(เมื่อ `ENABLE_DOCS=true`)*
 
-```powershell
-.\venv\Scripts\python.exe -m pip install -r requirements.txt
-```
+---
 
-## 3. เปิด Frontend
+## 5. รัน Frontend (Static Server — พอร์ต 5501)
 
-เปิด PowerShell อีกหน้าต่าง แล้วรันคำสั่งนี้:
+เปิด **Terminal หน้าต่างที่ 2** ที่โฟลเดอร์โปรเจกต์ แล้วรัน static server โดยกำหนดให้โฟลเดอร์ `frontend` เป็นรากของเว็บ:
 
-```powershell
-& "D:\Dev-HTML-PRoject\venv\Scripts\python.exe" -m http.server 5501 --bind 127.0.0.1 --directory "D:\Dev-HTML-PRoject\frontend"
-```
+- **Windows (PowerShell):**
+  ```powershell
+  .\.venv\Scripts\python.exe -m http.server 5501 --bind 127.0.0.1 --directory frontend
+  ```
+- **macOS / Linux:**
+  ```bash
+  python3 -m http.server 5501 --bind 127.0.0.1 --directory frontend
+  ```
 
-เมื่อขึ้น `Serving HTTP on 127.0.0.1 port 5501` ให้ปล่อยหน้าต่างนี้รันไว้
+เมื่อขึ้นข้อความ `Serving HTTP on 127.0.0.1 port 5501` ให้เปิดเบราว์เซอร์ไปที่:
 
-เปิดหน้าเข้าสู่ระบบ:
+👉 **<http://127.0.0.1:5501/temple/login.html>**
 
-**<http://127.0.0.1:5501/temple/login.html>**
+### ตาราง URL หลักของหน้าเว็บ
 
-คำสั่งกำหนดให้ `frontend` เป็นรากของเว็บแล้ว จึงไม่ต้องใส่ `/frontend` ใน URL
-
-| หน้า/ไฟล์ | URL |
+| หน้า | URL |
 |---|---|
-| เข้าสู่ระบบ | http://127.0.0.1:5501/temple/login.html |
-| Dashboard | http://127.0.0.1:5501/temple/dashboard.html |
-| ตรวจไฟล์ CSS | http://127.0.0.1:5501/static/css/login.css |
+| เข้าสู่ระบบ / สมัครสมาชิก | `http://127.0.0.1:5501/temple/login.html` |
+| ฐานบัญชาการ (Dashboard) | `http://127.0.0.1:5501/temple/dashboard.html` |
+| รายการภารกิจ (Quest) | `http://127.0.0.1:5501/temple/quest.html` |
+| บทเรียน (Lesson 1–12) | `http://127.0.0.1:5501/temple/lesson1.html` (ถึง `lesson12.html`) |
+| ด่าน Boss 1 & Final Boss | `http://127.0.0.1:5501/temple/boss1.html`, `boss2.html` |
+| จำลองโค้ด (SimCode) | `http://127.0.0.1:5501/temple/simcode.html` |
+| ความคืบหน้า (Progress) | `http://127.0.0.1:5501/temple/progress.html` |
 
-ควรใช้ hostname เดิมต่อเนื่อง เช่น `127.0.0.1` เพราะข้อมูลเข้าสู่ระบบใน localStorage แยกตาม origin
+> 💡 **ข้อควรรู้สำคัญ**
+> - ต้องระบุ `--directory frontend` เสมอ เพราะไฟล์ HTML อ้างอิง asset ผ่าน `/static/...` และลิงก์หน้าเว็บผ่าน `/temple/...` จึงไม่ต้องใส่ `/frontend` ใน URL
+> - ควรใช้ hostname เดียวกันตลอด (เช่น `127.0.0.1` ตลอด ไม่สลับไป `localhost`) เพราะ `localStorage` เก็บ token และสถานะการผ่านด่านแยกตาม origin
+> - ฝั่ง Frontend ชี้ไปที่ Backend ผ่านค่า `API_BASE_URL` ในไฟล์ `frontend/static/js/config.js` (ค่าเริ่มต้นคือ `http://localhost:8000`)
 
-## 4. หยุดเซิร์ฟเวอร์
+---
 
-กด `Ctrl+C` ในหน้าต่าง PowerShell ของแต่ละเซิร์ฟเวอร์
+## 6. ทางเลือก: รัน Backend ด้วย Docker
 
-## แก้ปัญหาที่พบบ่อย
+หากไม่ต้องการติดตั้ง Python บนเครื่อง สามารถรัน Backend ผ่าน Docker ได้โดยเตรียม `.env` และ `firebase-service-account.json` ให้เรียบร้อยก่อน แล้วรัน:
 
-### เปิดหน้าเข้าสู่ระบบแล้วขึ้น 404
-
-ถ้า log แสดง:
-
-```text
-GET /frontend/temple/login.html HTTP/1.1 404
+```bash
+docker build -t devquest-api .
 ```
 
-ให้เปลี่ยน URL เป็น:
+- **Windows (PowerShell):**
+  ```powershell
+  docker run --rm -p 8000:8000 --env-file .env `
+    -v "${PWD}\firebase-service-account.json:/app/firebase-service-account.json:ro" `
+    devquest-api
+  ```
+- **macOS / Linux:**
+  ```bash
+  docker run --rm -p 8000:8000 --env-file .env \
+    -v "$(pwd)/firebase-service-account.json:/app/firebase-service-account.json:ro" \
+    devquest-api
+  ```
 
-```text
-http://127.0.0.1:5501/temple/login.html
+จากนั้นเปิด Frontend ตามขั้นตอนที่ 5 ตามปกติ
+
+---
+
+## 7. การรันชุดทดสอบและตรวจสอบโค้ด (Test & Lint)
+
+ติดตั้งเครื่องมือพัฒนาก่อน (`pip install -r requirements-dev.txt`) จากนั้นรันคำสั่งต่อไปนี้จากรากโปรเจกต์:
+
+```bash
+# ตรวจสไตล์โค้ด Backend ด้วย Ruff
+ruff check app tests
+
+# รันชุดทดสอบ Unit & API Tests (จำลอง Firestore ให้อัตโนมัติ ไม่ต้องต่อ Firebase จริง)
+pytest -v
 ```
 
-### CSS โหลดไม่ได้ และ MIME type เป็น text/html
+ตรวจ syntax ฝั่ง Frontend (ต้องมี Node.js):
 
-เซิร์ฟเวอร์ส่งหน้า HTML กลับมาแทน CSS ซึ่งมักเป็นหน้า 404 ตรวจว่า:
+- **Windows (PowerShell):**
+  ```powershell
+  Get-ChildItem frontend\static\js\*.js | ForEach-Object { node --check $_.FullName }
+  ```
+- **macOS / Linux:**
+  ```bash
+  for f in frontend/static/js/*.js; do node --check "$f"; done
+  ```
 
-1. เปิดเว็บที่พอร์ต `5501` ตามคำสั่งข้างต้น
-2. เซิร์ฟเวอร์ใช้ `--directory "D:\Dev-HTML-PRoject\frontend"`
-3. เปิด `http://127.0.0.1:5501/static/css/login.css` แล้วเห็นโค้ด CSS
-4. กด `Ctrl+F5` เพื่อโหลดหน้าใหม่
+---
 
-### /users/me ขึ้น Failed to fetch หรือ net::ERR_FAILED
+## 8. วิธีหยุดเซิร์ฟเวอร์
 
-ตรวจว่า Backend พอร์ต `8000` รันอยู่ และ `.env` อนุญาต origin ของหน้าเว็บ เช่น `http://127.0.0.1:5501`
+กด `Ctrl + C` ในหน้าต่าง Terminal ทั้งสองหน้าต่าง (Backend และ Frontend)
 
-Frontend ตั้งค่า API ใน `frontend\static\js\config.js`:
+---
 
-```javascript
-const API_BASE_URL = "http://localhost:8000";
-```
+## 🛠️ แก้ปัญหาที่พบบ่อย (Troubleshooting)
 
-หลังเปลี่ยน CORS ให้เปิด Backend ใหม่ หากยังผิดพลาดให้ดูข้อความใน Console และ log ของ Backend
-
-### /users/me ตอบ 401 Unauthorized
-
-ให้เข้าสู่ระบบใหม่ หากเปลี่ยนจาก `localhost` เป็น `127.0.0.1` หรือเปลี่ยนพอร์ต ต้องเข้าสู่ระบบใหม่บน origin นั้น
-
-### /.well-known/appspecific/com.chrome.devtools.json ขึ้น 404
-
-เป็นคำขอไฟล์ตั้งค่าจาก Chrome DevTools โปรเจกต์ไม่มีไฟล์นี้จึงตอบ 404 ไม่กระทบการเปิดหน้าเว็บ
-
-### /favicon.ico ขึ้น 404
-
-โปรเจกต์ไม่มีไอคอนเว็บที่ตำแหน่งนี้ ไม่กระทบการโหลด HTML, CSS หรือ API
-
-### พอร์ตถูกใช้งานอยู่
-
-หยุดเซิร์ฟเวอร์เดิมของโปรเจกต์ด้วย `Ctrl+C` ก่อนเปิดใหม่ หากเปลี่ยนพอร์ต Frontend ต้องปรับ URL และ ALLOWED_ORIGINS ให้ตรงกัน
+| อาการที่พบ | สาเหตุและวิธีแก้ไข |
+|---|---|
+| เปิดหน้าเว็บแล้วขึ้น **404** (`GET /frontend/temple/login.html 404`) | รันเซิร์ฟเวอร์ด้วย `--directory frontend` แล้ว ให้ตัด `/frontend` ออกและเข้า `http://127.0.0.1:5501/temple/login.html` แทน |
+| หน้าเว็บไม่มีสี/สไตล์ (CSS โหลดไม่ได้) | ตรวจสอบว่าเปิดเซิร์ฟเวอร์ Frontend ด้วย `--directory frontend` แล้วลองเปิด `http://127.0.0.1:5501/static/css/login.css` เพื่อตรวจว่าเห็นไฟล์ CSS จากนั้นกด `Ctrl + F5` |
+| เรียก `/users/me` หรือ Login แล้วขึ้น **Failed to fetch / CORS error** | 1) ตรวจว่า Backend พอร์ต `8000` รันอยู่<br>2) ตรวจว่า `ALLOWED_ORIGINS` ใน `.env` มี origin ของ Frontend (เช่น `http://127.0.0.1:5501`)<br>3) รีสตาร์ต Backend หลังแก้ `.env` |
+| ได้รับ **401 Unauthorized** | Token หมดอายุ หรือสลับ URL ระหว่าง `localhost` กับ `127.0.0.1` ให้กลับไปหน้า Login เพื่อเข้าสู่ระบบใหม่บน origin เดิม |
+| พอร์ต `8000` หรือ `5501` ถูกใช้งานอยู่ | หยุดโปรเซสเดิมก่อน หรือเปลี่ยนพอร์ต Frontend แล้วเพิ่ม origin พอร์ตใหม่ลงใน `ALLOWED_ORIGINS` ใน `.env` |
+| เห็น 404 ของ `/favicon.ico` หรือ `/.well-known/...` | เป็นคำขออัตโนมัติของเบราว์เซอร์/Chrome DevTools ไม่มีผลต่อการทำงานของแอป |
